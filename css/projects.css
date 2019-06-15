@@ -1,0 +1,41 @@
+/*****************************************/
+/* Begin whole-page styles. **************/
+
+	a {
+		color: #ffffff;
+		text-decoration: underline;
+	}
+
+	a:hover {
+		color: #cccccc;
+		text-decoration: underline;
+	}
+
+	body {
+		background-color: #000000;
+	}
+
+	.side-columns {
+		background-image: url("../img/stars-left.png");
+	}
+
+	.top-navigation {
+		color: #ffffff;
+		font-family: "emulogic";
+		font-style: normal;
+		font-weight: normal;
+	}
+
+	.link {
+		cursor: pointer;
+		text-decoration: underline;
+	}
+
+	.projects-container {
+		color: #ffffff;
+		font-family: "emulogic";
+		font-style: normal;
+		font-weight: normal;
+		height: 900px;
+		padding-top: 400px;
+	}

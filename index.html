@@ -1,0 +1,690 @@
+<!doctype html>
+<!--- 
+	File: index.html
+	Authors: Justin Gogas
+	Purpose: Main display page.
+--->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="img/favicon.png" type="image/x-icon">
+	<link rel="stylesheet" href="lib/bootstrap-4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="font/emulogic/stylesheet.css">
+	<link rel="stylesheet" href="css/index.css">
+
+	<title>Gogatech</title>
+</head>
+
+<body>
+
+	<!--- Loading screen visible on first load while images and such loads behind it.  Wait 5 seconds and then fade out. --->
+	<div id="loading-screen" class="loading-container">
+		<div class="container">
+
+			<div class="row justify-content-center align-self-center">
+				<div class="col text-center loading-title">
+					<br><br><br>	
+					Loading
+				</div>
+			</div>
+
+			<!--- 10 coins appear in as a loading bar. --->
+			<div class="row text-center loading-coins">
+				<div class="col">
+					[ <img name="loading-coin" class="loading-coin" src="img/coin.gif"><img name="loading-coin" class="loading-coin" src="img/coin.gif"><img name="loading-coin" class="loading-coin" src="img/coin.gif"><img name="loading-coin" class="loading-coin" src="img/coin.gif"><img name="loading-coin" class="loading-coin" src="img/coin.gif"><img name="loading-coin" class="loading-coin" src="img/coin.gif"><img name="loading-coin" class="loading-coin" src="img/coin.gif"><img name="loading-coin" class="loading-coin" src="img/coin.gif"><img name="loading-coin" class="loading-coin" src="img/coin.gif"><img name="loading-coin" class="loading-coin" src="img/coin.gif"> ]
+				</div>
+			</div>
+
+			<div class="row justify-content-center align-self-center">
+				<div class="col text-center loading-subtitle">
+					Best at 1920x1080
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div id="main" class="container-fluid main-container">
+		<div class="row">
+			<div class="hidden-lg col-xl-2"></div>
+			<div class="col-lg-12 col-xl-8 text-center">
+				<div class="row top-navigation">
+
+					<div class="col-lg-3">
+						<a href="./index.html">Home</a>
+					</div>
+					<div class="col-lg-3">
+						<div class="dropdown">
+							<span class="dropdown-toggle link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resume</span>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item" href="documents/resume-creative.jpg" target="_blank">Creative</a>
+								<a class="dropdown-item" href="documents/resume-formal.pdf" target="_blank">Formal</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<span class="float-left">
+							<a href="./projects.html">Projects</a>
+							&nbsp;&nbsp;
+							<a href="https://github.com/justingogas" target="_blank">Github</a>
+							&nbsp;&nbsp;
+							<a href="mailto:justingogas@gmail.com"><img src="img/envelope-white.png" width="50" height="25"></a>
+						</span>
+					</div>
+
+				</div>
+			</div>
+			<div class="hidden-lg col-xl-2"></div>
+		</div>
+
+		<div class="row">
+
+			<div class="hidden-lg col-xl-2 side-columns"></div>
+			<div class="col-lg-12 col-xl-8 text-center">
+
+				<div class="pages-container">
+
+					<div id="mario-container" class="container mario-container">
+
+						<!--- Begin Mario page. --->
+
+							<!--- Waypoints trigger the animations on all other pages, so don't make an exception for the first page for consistency, even though it will fire immediately. --->
+							<div id="mario-waypoint" class="mario-waypoint"></div>
+
+							<div id="mario-text-hello"			class="mario-text mario-text-0"></div>
+							<div id="mario-text-description-0"	class="mario-text mario-text-1"></div>
+							<div id="mario-text-description-1"	class="mario-text mario-text-2"></div>
+							<div id="mario-text-description-2"	class="mario-text mario-text-3"></div>
+							<div id="mario-text-description-3"	class="mario-text mario-text-4"></div>
+							<div id="mario-text-start"			class="mario-text mario-text-5"></div>
+
+							<img id="mario-image-name"		class="mario-image-name"	src="img/mario/block.gif">
+							<img id="mario-image-cursor" 	class="mario-image-cursor"	src="img/mario/mushroom-cursor.gif">
+
+							<!--- Clickable elements on the controller D-pad will move to the previous or next page.  Only allow movement to the right on the first page. --->
+							<img id="controller" class="controller"	src="img/controller-right.gif">
+							<div id="controller-right"	class="controller-right"></div>
+
+						<!--- End Mario page. --->
+
+					</div>
+
+					<div id="tetris-container" class="container tetris-container">
+
+						<!--- Begin Tetris page. --->
+
+							<div id="tetris-waypoint" class="tetris-waypoint"></div>
+
+							<div id="tetris-text-skills"		class="tetris-text-title tetris-text-title-0"></div>
+							<div id="tetris-text-subtitle-0"	class="tetris-text-subtitle tetris-text-subtitle-0"></div>
+							<div id="tetris-text-subtitle-1"	class="tetris-text-subtitle tetris-text-subtitle-1"></div>
+							<div id="tetris-text-subtitle-2"	class="tetris-text-subtitle tetris-text-subtitle-2"></div>
+
+							<img id="tetris-next-block"	class="tetris-next-block tetris-next-block-source" src="img/tetris/next-block.png">
+
+							<img id="tetris-next-block-stack"		class="tetris-next-block tetris-next-block-origin-domains" src="img/tetris/next-block.png">
+							<img id="tetris-next-block-embedded"	class="tetris-next-block tetris-next-block-origin-domains" src="img/tetris/next-block.png">
+							<img id="tetris-next-block-server"		class="tetris-next-block tetris-next-block-origin-domains" src="img/tetris/next-block.png">
+							<img id="tetris-next-block-software"	class="tetris-next-block tetris-next-block-origin-domains" src="img/tetris/next-block.png" >
+							<img id="tetris-next-block-design"		class="tetris-next-block tetris-next-block-origin-domains" src="img/tetris/next-block.png">
+							<img id="tetris-next-block-hardware"	class="tetris-next-block tetris-next-block-origin-domains" src="img/tetris/next-block.png">
+
+							<div id="tetris-text-domains"		class="tetris-text-header tetris-text-header-0"></div>
+							<div id="tetris-text-stack-0"		class="tetris-text-row tetris-text-row-domain-0-0"></div>
+							<div id="tetris-text-stack-1"		class="tetris-text-row tetris-text-row-domain-0-1"></div>
+							<div id="tetris-text-embedded-0"	class="tetris-text-row tetris-text-row-domain-1-0"></div>
+							<div id="tetris-text-embedded-1"	class="tetris-text-row tetris-text-row-domain-1-1"></div>
+							<div id="tetris-text-server-0"		class="tetris-text-row tetris-text-row-domain-2-0"></div>
+							<div id="tetris-text-server-1"		class="tetris-text-row tetris-text-row-domain-2-1"></div>
+							<div id="tetris-text-software-0"	class="tetris-text-row tetris-text-row-domain-3-0"></div>
+							<div id="tetris-text-software-1"	class="tetris-text-row tetris-text-row-domain-3-1"></div>
+							<div id="tetris-text-design-0"		class="tetris-text-row tetris-text-row-domain-4-0"></div>
+							<div id="tetris-text-design-1"		class="tetris-text-row tetris-text-row-domain-4-1"></div>
+							<div id="tetris-text-hardware-0"	class="tetris-text-row tetris-text-row-domain-5-0"></div>
+							<div id="tetris-text-hardware-1"	class="tetris-text-row tetris-text-row-domain-5-1"></div>
+
+							<img id="tetris-block-stack-0"	class="tetris-block tetris-block-rating-domains-y-0 tetris-block-rating-x-0"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-stack-1"	class="tetris-block tetris-block-rating-domains-y-0 tetris-block-rating-x-1"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-stack-2"	class="tetris-block tetris-block-rating-domains-y-0 tetris-block-rating-x-2"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-stack-3"	class="tetris-block tetris-block-rating-domains-y-0 tetris-block-rating-x-3"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-stack-4"	class="tetris-block tetris-block-rating-domains-y-0 tetris-block-rating-x-4"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-stack-5"	class="tetris-block tetris-block-rating-domains-y-0 tetris-block-rating-x-5"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-stack-6"	class="tetris-block tetris-block-rating-domains-y-0 tetris-block-rating-x-6"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-stack-7"	class="tetris-block tetris-block-rating-domains-y-0 tetris-block-rating-x-7"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-stack-8"	class="tetris-block tetris-block-rating-domains-y-0 tetris-block-rating-x-8"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-stack-9"	class="tetris-block tetris-block-rating-domains-y-0 tetris-block-rating-x-9"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-stack-10"	class="tetris-block tetris-block-rating-domains-y-0 tetris-block-rating-x-10"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-stack-11"	class="tetris-block tetris-block-rating-domains-y-0 tetris-block-rating-x-11"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-stack-12"	class="tetris-block tetris-block-rating-domains-y-0 tetris-block-rating-x-12"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-stack-13"	class="tetris-block tetris-block-rating-domains-y-0 tetris-block-rating-x-13"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-stack-14"	class="tetris-block tetris-block-rating-domains-y-0 tetris-block-rating-x-14"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-stack-15"	class="tetris-block tetris-block-rating-domains-y-0 tetris-block-rating-x-15"	src="img/tetris/block-green.png">
+							<img id="tetris-block-stack-16"	class="tetris-block tetris-block-rating-domains-y-0 tetris-block-rating-x-16"	src="img/tetris/block-green.png">
+							<img id="tetris-block-stack-17"	class="tetris-block tetris-block-rating-domains-y-0 tetris-block-rating-x-17"	src="img/tetris/block-green.png">
+							<img id="tetris-block-stack-18"	class="tetris-block tetris-block-rating-domains-y-0 tetris-block-rating-x-18"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-stack-19"	class="tetris-block tetris-block-rating-domains-y-0 tetris-block-rating-x-19"	src="img/tetris/block-blank.png">
+
+							<img id="tetris-block-embedded-0"	class="tetris-block tetris-block-rating-domains-y-1 tetris-block-rating-x-0"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-embedded-1"	class="tetris-block tetris-block-rating-domains-y-1 tetris-block-rating-x-1"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-embedded-2"	class="tetris-block tetris-block-rating-domains-y-1 tetris-block-rating-x-2"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-embedded-3"	class="tetris-block tetris-block-rating-domains-y-1 tetris-block-rating-x-3"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-embedded-4"	class="tetris-block tetris-block-rating-domains-y-1 tetris-block-rating-x-4"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-embedded-5"	class="tetris-block tetris-block-rating-domains-y-1 tetris-block-rating-x-5"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-embedded-6"	class="tetris-block tetris-block-rating-domains-y-1 tetris-block-rating-x-6"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-embedded-7"	class="tetris-block tetris-block-rating-domains-y-1 tetris-block-rating-x-7"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-embedded-8"	class="tetris-block tetris-block-rating-domains-y-1 tetris-block-rating-x-8"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-embedded-9"	class="tetris-block tetris-block-rating-domains-y-1 tetris-block-rating-x-9"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-embedded-10"	class="tetris-block tetris-block-rating-domains-y-1 tetris-block-rating-x-10"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-embedded-11"	class="tetris-block tetris-block-rating-domains-y-1 tetris-block-rating-x-11"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-embedded-12"	class="tetris-block tetris-block-rating-domains-y-1 tetris-block-rating-x-12"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-embedded-13"	class="tetris-block tetris-block-rating-domains-y-1 tetris-block-rating-x-13"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-embedded-14"	class="tetris-block tetris-block-rating-domains-y-1 tetris-block-rating-x-14"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-embedded-15"	class="tetris-block tetris-block-rating-domains-y-1 tetris-block-rating-x-15"	src="img/tetris/block-green.png">
+							<img id="tetris-block-embedded-16"	class="tetris-block tetris-block-rating-domains-y-1 tetris-block-rating-x-16"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-embedded-17"	class="tetris-block tetris-block-rating-domains-y-1 tetris-block-rating-x-17"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-embedded-18"	class="tetris-block tetris-block-rating-domains-y-1 tetris-block-rating-x-18"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-embedded-19"	class="tetris-block tetris-block-rating-domains-y-1 tetris-block-rating-x-19"	src="img/tetris/block-blank.png">
+
+							<img id="tetris-block-server-0"		class="tetris-block tetris-block-rating-domains-y-2 tetris-block-rating-x-0"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-server-1"		class="tetris-block tetris-block-rating-domains-y-2 tetris-block-rating-x-1"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-server-2"		class="tetris-block tetris-block-rating-domains-y-2 tetris-block-rating-x-2"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-server-3"		class="tetris-block tetris-block-rating-domains-y-2 tetris-block-rating-x-3"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-server-4"		class="tetris-block tetris-block-rating-domains-y-2 tetris-block-rating-x-4"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-server-5"		class="tetris-block tetris-block-rating-domains-y-2 tetris-block-rating-x-5"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-server-6"		class="tetris-block tetris-block-rating-domains-y-2 tetris-block-rating-x-6"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-server-7"		class="tetris-block tetris-block-rating-domains-y-2 tetris-block-rating-x-7"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-server-8"		class="tetris-block tetris-block-rating-domains-y-2 tetris-block-rating-x-8"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-server-9"		class="tetris-block tetris-block-rating-domains-y-2 tetris-block-rating-x-9"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-server-10"	class="tetris-block tetris-block-rating-domains-y-2 tetris-block-rating-x-10"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-server-11"	class="tetris-block tetris-block-rating-domains-y-2 tetris-block-rating-x-11"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-server-12"	class="tetris-block tetris-block-rating-domains-y-2 tetris-block-rating-x-12"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-server-13"	class="tetris-block tetris-block-rating-domains-y-2 tetris-block-rating-x-13"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-server-14"	class="tetris-block tetris-block-rating-domains-y-2 tetris-block-rating-x-14"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-server-15"	class="tetris-block tetris-block-rating-domains-y-2 tetris-block-rating-x-15"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-server-16"	class="tetris-block tetris-block-rating-domains-y-2 tetris-block-rating-x-16"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-server-17"	class="tetris-block tetris-block-rating-domains-y-2 tetris-block-rating-x-17"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-server-18"	class="tetris-block tetris-block-rating-domains-y-2 tetris-block-rating-x-18"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-server-19"	class="tetris-block tetris-block-rating-domains-y-2 tetris-block-rating-x-19"	src="img/tetris/block-blank.png">
+
+							<img id="tetris-block-software-0"	class="tetris-block tetris-block-rating-domains-y-3 tetris-block-rating-x-0"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-software-1"	class="tetris-block tetris-block-rating-domains-y-3 tetris-block-rating-x-1"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-software-2"	class="tetris-block tetris-block-rating-domains-y-3 tetris-block-rating-x-2"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-software-3"	class="tetris-block tetris-block-rating-domains-y-3 tetris-block-rating-x-3"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-software-4"	class="tetris-block tetris-block-rating-domains-y-3 tetris-block-rating-x-4"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-software-5"	class="tetris-block tetris-block-rating-domains-y-3 tetris-block-rating-x-5"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-software-6"	class="tetris-block tetris-block-rating-domains-y-3 tetris-block-rating-x-6"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-software-7"	class="tetris-block tetris-block-rating-domains-y-3 tetris-block-rating-x-7"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-software-8"	class="tetris-block tetris-block-rating-domains-y-3 tetris-block-rating-x-8"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-software-9"	class="tetris-block tetris-block-rating-domains-y-3 tetris-block-rating-x-9"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-software-10"	class="tetris-block tetris-block-rating-domains-y-3 tetris-block-rating-x-10"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-software-11"	class="tetris-block tetris-block-rating-domains-y-3 tetris-block-rating-x-11"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-software-12"	class="tetris-block tetris-block-rating-domains-y-3 tetris-block-rating-x-12"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-software-13"	class="tetris-block tetris-block-rating-domains-y-3 tetris-block-rating-x-13"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-software-14"	class="tetris-block tetris-block-rating-domains-y-3 tetris-block-rating-x-14"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-software-15"	class="tetris-block tetris-block-rating-domains-y-3 tetris-block-rating-x-15"	src="img/tetris/block-green.png">
+							<img id="tetris-block-software-16"	class="tetris-block tetris-block-rating-domains-y-3 tetris-block-rating-x-16"	src="img/tetris/block-green.png">
+							<img id="tetris-block-software-17"	class="tetris-block tetris-block-rating-domains-y-3 tetris-block-rating-x-17"	src="img/tetris/block-green.png">
+							<img id="tetris-block-software-18"	class="tetris-block tetris-block-rating-domains-y-3 tetris-block-rating-x-18"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-software-19"	class="tetris-block tetris-block-rating-domains-y-3 tetris-block-rating-x-19"	src="img/tetris/block-blank.png">
+
+							<img id="tetris-block-design-0"		class="tetris-block tetris-block-rating-domains-y-4 tetris-block-rating-x-0"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-design-1"		class="tetris-block tetris-block-rating-domains-y-4 tetris-block-rating-x-1"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-design-2"		class="tetris-block tetris-block-rating-domains-y-4 tetris-block-rating-x-2"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-design-3"		class="tetris-block tetris-block-rating-domains-y-4 tetris-block-rating-x-3"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-design-4"		class="tetris-block tetris-block-rating-domains-y-4 tetris-block-rating-x-4"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-design-5"		class="tetris-block tetris-block-rating-domains-y-4 tetris-block-rating-x-5"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-design-6"		class="tetris-block tetris-block-rating-domains-y-4 tetris-block-rating-x-6"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-design-7"		class="tetris-block tetris-block-rating-domains-y-4 tetris-block-rating-x-7"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-design-8"		class="tetris-block tetris-block-rating-domains-y-4 tetris-block-rating-x-8"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-design-9"		class="tetris-block tetris-block-rating-domains-y-4 tetris-block-rating-x-9"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-design-10"	class="tetris-block tetris-block-rating-domains-y-4 tetris-block-rating-x-10"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-design-11"	class="tetris-block tetris-block-rating-domains-y-4 tetris-block-rating-x-11"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-design-12"	class="tetris-block tetris-block-rating-domains-y-4 tetris-block-rating-x-12"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-design-13"	class="tetris-block tetris-block-rating-domains-y-4 tetris-block-rating-x-13"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-design-14"	class="tetris-block tetris-block-rating-domains-y-4 tetris-block-rating-x-14"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-design-15"	class="tetris-block tetris-block-rating-domains-y-4 tetris-block-rating-x-15"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-design-16"	class="tetris-block tetris-block-rating-domains-y-4 tetris-block-rating-x-16"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-design-17"	class="tetris-block tetris-block-rating-domains-y-4 tetris-block-rating-x-17"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-design-18"	class="tetris-block tetris-block-rating-domains-y-4 tetris-block-rating-x-18"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-design-19"	class="tetris-block tetris-block-rating-domains-y-4 tetris-block-rating-x-19"	src="img/tetris/block-blank.png">
+
+							<img id="tetris-block-hardware-0"	class="tetris-block tetris-block-rating-domains-y-5 tetris-block-rating-x-0"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-hardware-1"	class="tetris-block tetris-block-rating-domains-y-5 tetris-block-rating-x-1"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-hardware-2"	class="tetris-block tetris-block-rating-domains-y-5 tetris-block-rating-x-2"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-hardware-3"	class="tetris-block tetris-block-rating-domains-y-5 tetris-block-rating-x-3"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-hardware-4"	class="tetris-block tetris-block-rating-domains-y-5 tetris-block-rating-x-4"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-hardware-5"	class="tetris-block tetris-block-rating-domains-y-5 tetris-block-rating-x-5"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-hardware-6"	class="tetris-block tetris-block-rating-domains-y-5 tetris-block-rating-x-6"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-hardware-7"	class="tetris-block tetris-block-rating-domains-y-5 tetris-block-rating-x-7"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-hardware-8"	class="tetris-block tetris-block-rating-domains-y-5 tetris-block-rating-x-8"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-hardware-9"	class="tetris-block tetris-block-rating-domains-y-5 tetris-block-rating-x-9"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-hardware-10"	class="tetris-block tetris-block-rating-domains-y-5 tetris-block-rating-x-10"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-hardware-11"	class="tetris-block tetris-block-rating-domains-y-5 tetris-block-rating-x-11"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-hardware-12"	class="tetris-block tetris-block-rating-domains-y-5 tetris-block-rating-x-12"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-hardware-13"	class="tetris-block tetris-block-rating-domains-y-5 tetris-block-rating-x-13"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-hardware-14"	class="tetris-block tetris-block-rating-domains-y-5 tetris-block-rating-x-14"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-hardware-15"	class="tetris-block tetris-block-rating-domains-y-5 tetris-block-rating-x-15"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-hardware-16"	class="tetris-block tetris-block-rating-domains-y-5 tetris-block-rating-x-16"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-hardware-17"	class="tetris-block tetris-block-rating-domains-y-5 tetris-block-rating-x-17"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-hardware-18"	class="tetris-block tetris-block-rating-domains-y-5 tetris-block-rating-x-18"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-hardware-19"	class="tetris-block tetris-block-rating-domains-y-5 tetris-block-rating-x-19"	src="img/tetris/block-blank.png">
+
+							<div id="tetris-text-technologies" class="tetris-text-header tetris-text-header-1"></div>
+							
+							<img id="tetris-next-block-c"			class="tetris-next-block tetris-next-block-origin-technologies" src="img/tetris/next-block.png">
+							<img id="tetris-next-block-java"		class="tetris-next-block tetris-next-block-origin-technologies" src="img/tetris/next-block.png">
+							<img id="tetris-next-block-python"		class="tetris-next-block tetris-next-block-origin-technologies" src="img/tetris/next-block.png">
+							<img id="tetris-next-block-js"			class="tetris-next-block tetris-next-block-origin-technologies" src="img/tetris/next-block.png">
+							<img id="tetris-next-block-html"		class="tetris-next-block tetris-next-block-origin-technologies" src="img/tetris/next-block.png">
+							<img id="tetris-next-block-coldfusion"	class="tetris-next-block tetris-next-block-origin-technologies" src="img/tetris/next-block.png">
+							<img id="tetris-next-block-sql"			class="tetris-next-block tetris-next-block-origin-technologies" src="img/tetris/next-block.png">
+							<img id="tetris-next-block-unix"		class="tetris-next-block tetris-next-block-origin-technologies" src="img/tetris/next-block.png">
+							<img id="tetris-next-block-arduino"		class="tetris-next-block tetris-next-block-origin-technologies" src="img/tetris/next-block.png">
+							<img id="tetris-next-block-eagle"		class="tetris-next-block tetris-next-block-origin-technologies" src="img/tetris/next-block.png">
+							
+							<div id="tetris-text-c"				class="tetris-text-row tetris-text-row-technologies-0"></div>
+							<div id="tetris-text-java"			class="tetris-text-row tetris-text-row-technologies-1"></div>
+							<div id="tetris-text-python"		class="tetris-text-row tetris-text-row-technologies-2"></div>
+							<div id="tetris-text-js"			class="tetris-text-row tetris-text-row-technologies-3"></div>
+							<div id="tetris-text-html"			class="tetris-text-row tetris-text-row-technologies-4"></div>
+							<div id="tetris-text-coldfusion"	class="tetris-text-row tetris-text-row-technologies-5"></div>
+							<div id="tetris-text-sql"			class="tetris-text-row tetris-text-row-technologies-6"></div>
+							<div id="tetris-text-unix"			class="tetris-text-row tetris-text-row-technologies-7"></div>
+							<div id="tetris-text-arduino"		class="tetris-text-row tetris-text-row-technologies-8"></div>
+							<div id="tetris-text-eagle"			class="tetris-text-row tetris-text-row-technologies-9"></div>
+
+							<img id="tetris-snake" class="tetris-snake" src="img/tetris/snake.png">
+
+							<img id="tetris-block-c-0"	class="tetris-block tetris-block-rating-technologies-y-0 tetris-block-rating-x-0"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-c-1"	class="tetris-block tetris-block-rating-technologies-y-0 tetris-block-rating-x-1"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-c-2"	class="tetris-block tetris-block-rating-technologies-y-0 tetris-block-rating-x-2"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-c-3"	class="tetris-block tetris-block-rating-technologies-y-0 tetris-block-rating-x-3"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-c-4"	class="tetris-block tetris-block-rating-technologies-y-0 tetris-block-rating-x-4"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-c-5"	class="tetris-block tetris-block-rating-technologies-y-0 tetris-block-rating-x-5"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-c-6"	class="tetris-block tetris-block-rating-technologies-y-0 tetris-block-rating-x-6"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-c-7"	class="tetris-block tetris-block-rating-technologies-y-0 tetris-block-rating-x-7"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-c-8"	class="tetris-block tetris-block-rating-technologies-y-0 tetris-block-rating-x-8"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-c-9"	class="tetris-block tetris-block-rating-technologies-y-0 tetris-block-rating-x-9"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-c-10"	class="tetris-block tetris-block-rating-technologies-y-0 tetris-block-rating-x-10"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-c-11"	class="tetris-block tetris-block-rating-technologies-y-0 tetris-block-rating-x-11" 	src="img/tetris/block-teal.png">
+							<img id="tetris-block-c-12"	class="tetris-block tetris-block-rating-technologies-y-0 tetris-block-rating-x-12" 	src="img/tetris/block-teal.png">
+							<img id="tetris-block-c-13"	class="tetris-block tetris-block-rating-technologies-y-0 tetris-block-rating-x-13"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-c-14"	class="tetris-block tetris-block-rating-technologies-y-0 tetris-block-rating-x-14"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-c-15"	class="tetris-block tetris-block-rating-technologies-y-0 tetris-block-rating-x-15"	src="img/tetris/block-green.png">
+							<img id="tetris-block-c-16"	class="tetris-block tetris-block-rating-technologies-y-0 tetris-block-rating-x-16"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-c-17"	class="tetris-block tetris-block-rating-technologies-y-0 tetris-block-rating-x-17"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-c-18"	class="tetris-block tetris-block-rating-technologies-y-0 tetris-block-rating-x-18"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-c-19"	class="tetris-block tetris-block-rating-technologies-y-0 tetris-block-rating-x-19"	src="img/tetris/block-blank.png">
+
+							<img id="tetris-block-java-0"	class="tetris-block tetris-block-rating-technologies-y-1 tetris-block-rating-x-0"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-java-1"	class="tetris-block tetris-block-rating-technologies-y-1 tetris-block-rating-x-1"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-java-2"	class="tetris-block tetris-block-rating-technologies-y-1 tetris-block-rating-x-2"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-java-3"	class="tetris-block tetris-block-rating-technologies-y-1 tetris-block-rating-x-3"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-java-4"	class="tetris-block tetris-block-rating-technologies-y-1 tetris-block-rating-x-4"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-java-5"	class="tetris-block tetris-block-rating-technologies-y-1 tetris-block-rating-x-5"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-java-6"	class="tetris-block tetris-block-rating-technologies-y-1 tetris-block-rating-x-6"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-java-7"	class="tetris-block tetris-block-rating-technologies-y-1 tetris-block-rating-x-7"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-java-8"	class="tetris-block tetris-block-rating-technologies-y-1 tetris-block-rating-x-8"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-java-9"	class="tetris-block tetris-block-rating-technologies-y-1 tetris-block-rating-x-9"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-java-10"	class="tetris-block tetris-block-rating-technologies-y-1 tetris-block-rating-x-10"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-java-11"	class="tetris-block tetris-block-rating-technologies-y-1 tetris-block-rating-x-11" 	src="img/tetris/block-teal.png">
+							<img id="tetris-block-java-12"	class="tetris-block tetris-block-rating-technologies-y-1 tetris-block-rating-x-12" 	src="img/tetris/block-teal.png">
+							<img id="tetris-block-java-13"	class="tetris-block tetris-block-rating-technologies-y-1 tetris-block-rating-x-13"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-java-14"	class="tetris-block tetris-block-rating-technologies-y-1 tetris-block-rating-x-14"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-java-15"	class="tetris-block tetris-block-rating-technologies-y-1 tetris-block-rating-x-15"	src="img/tetris/block-green.png">
+							<img id="tetris-block-java-16"	class="tetris-block tetris-block-rating-technologies-y-1 tetris-block-rating-x-16"	src="img/tetris/block-green.png">
+							<img id="tetris-block-java-17"	class="tetris-block tetris-block-rating-technologies-y-1 tetris-block-rating-x-17"	src="img/tetris/block-green.png">
+							<img id="tetris-block-java-18"	class="tetris-block tetris-block-rating-technologies-y-1 tetris-block-rating-x-18"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-java-19"	class="tetris-block tetris-block-rating-technologies-y-1 tetris-block-rating-x-19"	src="img/tetris/block-blank.png">
+
+							<img id="tetris-block-python-0"		class="tetris-block tetris-block-rating-technologies-y-2 tetris-block-rating-x-0"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-python-1"		class="tetris-block tetris-block-rating-technologies-y-2 tetris-block-rating-x-1"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-python-2"		class="tetris-block tetris-block-rating-technologies-y-2 tetris-block-rating-x-2"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-python-3"		class="tetris-block tetris-block-rating-technologies-y-2 tetris-block-rating-x-3"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-python-4"		class="tetris-block tetris-block-rating-technologies-y-2 tetris-block-rating-x-4"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-python-5"		class="tetris-block tetris-block-rating-technologies-y-2 tetris-block-rating-x-5"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-python-6"		class="tetris-block tetris-block-rating-technologies-y-2 tetris-block-rating-x-6"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-python-7"		class="tetris-block tetris-block-rating-technologies-y-2 tetris-block-rating-x-7"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-python-8"		class="tetris-block tetris-block-rating-technologies-y-2 tetris-block-rating-x-8"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-python-9"		class="tetris-block tetris-block-rating-technologies-y-2 tetris-block-rating-x-9"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-python-10"	class="tetris-block tetris-block-rating-technologies-y-2 tetris-block-rating-x-10"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-python-11"	class="tetris-block tetris-block-rating-technologies-y-2 tetris-block-rating-x-11" 	src="img/tetris/block-blank.png">
+							<img id="tetris-block-python-12"	class="tetris-block tetris-block-rating-technologies-y-2 tetris-block-rating-x-12" 	src="img/tetris/block-blank.png">
+							<img id="tetris-block-python-13"	class="tetris-block tetris-block-rating-technologies-y-2 tetris-block-rating-x-13"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-python-14"	class="tetris-block tetris-block-rating-technologies-y-2 tetris-block-rating-x-14"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-python-15"	class="tetris-block tetris-block-rating-technologies-y-2 tetris-block-rating-x-15"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-python-16"	class="tetris-block tetris-block-rating-technologies-y-2 tetris-block-rating-x-16"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-python-17"	class="tetris-block tetris-block-rating-technologies-y-2 tetris-block-rating-x-17"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-python-18"	class="tetris-block tetris-block-rating-technologies-y-2 tetris-block-rating-x-18"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-python-19"	class="tetris-block tetris-block-rating-technologies-y-2 tetris-block-rating-x-19"	src="img/tetris/block-blank.png">
+
+							<img id="tetris-block-js-0"		class="tetris-block tetris-block-rating-technologies-y-3 tetris-block-rating-x-0"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-js-1"		class="tetris-block tetris-block-rating-technologies-y-3 tetris-block-rating-x-1"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-js-2"		class="tetris-block tetris-block-rating-technologies-y-3 tetris-block-rating-x-2"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-js-3"		class="tetris-block tetris-block-rating-technologies-y-3 tetris-block-rating-x-3"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-js-4"		class="tetris-block tetris-block-rating-technologies-y-3 tetris-block-rating-x-4"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-js-5"		class="tetris-block tetris-block-rating-technologies-y-3 tetris-block-rating-x-5"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-js-6"		class="tetris-block tetris-block-rating-technologies-y-3 tetris-block-rating-x-6"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-js-7"		class="tetris-block tetris-block-rating-technologies-y-3 tetris-block-rating-x-7"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-js-8"		class="tetris-block tetris-block-rating-technologies-y-3 tetris-block-rating-x-8"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-js-9"		class="tetris-block tetris-block-rating-technologies-y-3 tetris-block-rating-x-9"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-js-10"	class="tetris-block tetris-block-rating-technologies-y-3 tetris-block-rating-x-10"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-js-11"	class="tetris-block tetris-block-rating-technologies-y-3 tetris-block-rating-x-11" 	src="img/tetris/block-teal.png">
+							<img id="tetris-block-js-12"	class="tetris-block tetris-block-rating-technologies-y-3 tetris-block-rating-x-12" 	src="img/tetris/block-teal.png">
+							<img id="tetris-block-js-13"	class="tetris-block tetris-block-rating-technologies-y-3 tetris-block-rating-x-13"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-js-14"	class="tetris-block tetris-block-rating-technologies-y-3 tetris-block-rating-x-14"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-js-15"	class="tetris-block tetris-block-rating-technologies-y-3 tetris-block-rating-x-15"	src="img/tetris/block-green.png">
+							<img id="tetris-block-js-16"	class="tetris-block tetris-block-rating-technologies-y-3 tetris-block-rating-x-16"	src="img/tetris/block-green.png">
+							<img id="tetris-block-js-17"	class="tetris-block tetris-block-rating-technologies-y-3 tetris-block-rating-x-17"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-js-18"	class="tetris-block tetris-block-rating-technologies-y-3 tetris-block-rating-x-18"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-js-19"	class="tetris-block tetris-block-rating-technologies-y-3 tetris-block-rating-x-19"	src="img/tetris/block-blank.png">
+
+							<img id="tetris-block-html-0"	class="tetris-block tetris-block-rating-technologies-y-4 tetris-block-rating-x-0"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-html-1"	class="tetris-block tetris-block-rating-technologies-y-4 tetris-block-rating-x-1"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-html-2"	class="tetris-block tetris-block-rating-technologies-y-4 tetris-block-rating-x-2"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-html-3"	class="tetris-block tetris-block-rating-technologies-y-4 tetris-block-rating-x-3"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-html-4"	class="tetris-block tetris-block-rating-technologies-y-4 tetris-block-rating-x-4"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-html-5"	class="tetris-block tetris-block-rating-technologies-y-4 tetris-block-rating-x-5"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-html-6"	class="tetris-block tetris-block-rating-technologies-y-4 tetris-block-rating-x-6"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-html-7"	class="tetris-block tetris-block-rating-technologies-y-4 tetris-block-rating-x-7"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-html-8"	class="tetris-block tetris-block-rating-technologies-y-4 tetris-block-rating-x-8"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-html-9"	class="tetris-block tetris-block-rating-technologies-y-4 tetris-block-rating-x-9"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-html-10"	class="tetris-block tetris-block-rating-technologies-y-4 tetris-block-rating-x-10"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-html-11"	class="tetris-block tetris-block-rating-technologies-y-4 tetris-block-rating-x-11" 	src="img/tetris/block-teal.png">
+							<img id="tetris-block-html-12"	class="tetris-block tetris-block-rating-technologies-y-4 tetris-block-rating-x-12" 	src="img/tetris/block-teal.png">
+							<img id="tetris-block-html-13"	class="tetris-block tetris-block-rating-technologies-y-4 tetris-block-rating-x-13"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-html-14"	class="tetris-block tetris-block-rating-technologies-y-4 tetris-block-rating-x-14"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-html-15"	class="tetris-block tetris-block-rating-technologies-y-4 tetris-block-rating-x-15"	src="img/tetris/block-green.png">
+							<img id="tetris-block-html-16"	class="tetris-block tetris-block-rating-technologies-y-4 tetris-block-rating-x-16"	src="img/tetris/block-green.png">
+							<img id="tetris-block-html-17"	class="tetris-block tetris-block-rating-technologies-y-4 tetris-block-rating-x-17"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-html-18"	class="tetris-block tetris-block-rating-technologies-y-4 tetris-block-rating-x-18"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-html-19"	class="tetris-block tetris-block-rating-technologies-y-4 tetris-block-rating-x-19"	src="img/tetris/block-blank.png">
+
+							<img id="tetris-block-coldfusion-0"		class="tetris-block tetris-block-rating-technologies-y-5 tetris-block-rating-x-0"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-coldfusion-1"		class="tetris-block tetris-block-rating-technologies-y-5 tetris-block-rating-x-1"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-coldfusion-2"		class="tetris-block tetris-block-rating-technologies-y-5 tetris-block-rating-x-2"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-coldfusion-3"		class="tetris-block tetris-block-rating-technologies-y-5 tetris-block-rating-x-3"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-coldfusion-4"		class="tetris-block tetris-block-rating-technologies-y-5 tetris-block-rating-x-4"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-coldfusion-5"		class="tetris-block tetris-block-rating-technologies-y-5 tetris-block-rating-x-5"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-coldfusion-6"		class="tetris-block tetris-block-rating-technologies-y-5 tetris-block-rating-x-6"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-coldfusion-7"		class="tetris-block tetris-block-rating-technologies-y-5 tetris-block-rating-x-7"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-coldfusion-8"		class="tetris-block tetris-block-rating-technologies-y-5 tetris-block-rating-x-8"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-coldfusion-9"		class="tetris-block tetris-block-rating-technologies-y-5 tetris-block-rating-x-9"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-coldfusion-10"	class="tetris-block tetris-block-rating-technologies-y-5 tetris-block-rating-x-10"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-coldfusion-11"	class="tetris-block tetris-block-rating-technologies-y-5 tetris-block-rating-x-11" 	src="img/tetris/block-teal.png">
+							<img id="tetris-block-coldfusion-12"	class="tetris-block tetris-block-rating-technologies-y-5 tetris-block-rating-x-12" 	src="img/tetris/block-teal.png">
+							<img id="tetris-block-coldfusion-13"	class="tetris-block tetris-block-rating-technologies-y-5 tetris-block-rating-x-13"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-coldfusion-14"	class="tetris-block tetris-block-rating-technologies-y-5 tetris-block-rating-x-14"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-coldfusion-15"	class="tetris-block tetris-block-rating-technologies-y-5 tetris-block-rating-x-15"	src="img/tetris/block-green.png">
+							<img id="tetris-block-coldfusion-16"	class="tetris-block tetris-block-rating-technologies-y-5 tetris-block-rating-x-16"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-coldfusion-17"	class="tetris-block tetris-block-rating-technologies-y-5 tetris-block-rating-x-17"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-coldfusion-18"	class="tetris-block tetris-block-rating-technologies-y-5 tetris-block-rating-x-18"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-coldfusion-19"	class="tetris-block tetris-block-rating-technologies-y-5 tetris-block-rating-x-19"	src="img/tetris/block-blank.png">
+
+							<img id="tetris-block-sql-0"	class="tetris-block tetris-block-rating-technologies-y-6 tetris-block-rating-x-0"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-sql-1"	class="tetris-block tetris-block-rating-technologies-y-6 tetris-block-rating-x-1"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-sql-2"	class="tetris-block tetris-block-rating-technologies-y-6 tetris-block-rating-x-2"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-sql-3"	class="tetris-block tetris-block-rating-technologies-y-6 tetris-block-rating-x-3"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-sql-4"	class="tetris-block tetris-block-rating-technologies-y-6 tetris-block-rating-x-4"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-sql-5"	class="tetris-block tetris-block-rating-technologies-y-6 tetris-block-rating-x-5"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-sql-6"	class="tetris-block tetris-block-rating-technologies-y-6 tetris-block-rating-x-6"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-sql-7"	class="tetris-block tetris-block-rating-technologies-y-6 tetris-block-rating-x-7"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-sql-8"	class="tetris-block tetris-block-rating-technologies-y-6 tetris-block-rating-x-8"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-sql-9"	class="tetris-block tetris-block-rating-technologies-y-6 tetris-block-rating-x-9"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-sql-10"	class="tetris-block tetris-block-rating-technologies-y-6 tetris-block-rating-x-10"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-sql-11"	class="tetris-block tetris-block-rating-technologies-y-6 tetris-block-rating-x-11" 	src="img/tetris/block-teal.png">
+							<img id="tetris-block-sql-12"	class="tetris-block tetris-block-rating-technologies-y-6 tetris-block-rating-x-12" 	src="img/tetris/block-teal.png">
+							<img id="tetris-block-sql-13"	class="tetris-block tetris-block-rating-technologies-y-6 tetris-block-rating-x-13"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-sql-14"	class="tetris-block tetris-block-rating-technologies-y-6 tetris-block-rating-x-14"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-sql-15"	class="tetris-block tetris-block-rating-technologies-y-6 tetris-block-rating-x-15"	src="img/tetris/block-green.png">
+							<img id="tetris-block-sql-16"	class="tetris-block tetris-block-rating-technologies-y-6 tetris-block-rating-x-16"	src="img/tetris/block-green.png">
+							<img id="tetris-block-sql-17"	class="tetris-block tetris-block-rating-technologies-y-6 tetris-block-rating-x-17"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-sql-18"	class="tetris-block tetris-block-rating-technologies-y-6 tetris-block-rating-x-18"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-sql-19"	class="tetris-block tetris-block-rating-technologies-y-6 tetris-block-rating-x-19"	src="img/tetris/block-blank.png">
+
+							<img id="tetris-block-unix-0"	class="tetris-block tetris-block-rating-technologies-y-7 tetris-block-rating-x-0"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-unix-1"	class="tetris-block tetris-block-rating-technologies-y-7 tetris-block-rating-x-1"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-unix-2"	class="tetris-block tetris-block-rating-technologies-y-7 tetris-block-rating-x-2"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-unix-3"	class="tetris-block tetris-block-rating-technologies-y-7 tetris-block-rating-x-3"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-unix-4"	class="tetris-block tetris-block-rating-technologies-y-7 tetris-block-rating-x-4"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-unix-5"	class="tetris-block tetris-block-rating-technologies-y-7 tetris-block-rating-x-5"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-unix-6"	class="tetris-block tetris-block-rating-technologies-y-7 tetris-block-rating-x-6"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-unix-7"	class="tetris-block tetris-block-rating-technologies-y-7 tetris-block-rating-x-7"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-unix-8"	class="tetris-block tetris-block-rating-technologies-y-7 tetris-block-rating-x-8"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-unix-9"	class="tetris-block tetris-block-rating-technologies-y-7 tetris-block-rating-x-9"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-unix-10"	class="tetris-block tetris-block-rating-technologies-y-7 tetris-block-rating-x-10"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-unix-11"	class="tetris-block tetris-block-rating-technologies-y-7 tetris-block-rating-x-11" 	src="img/tetris/block-teal.png">
+							<img id="tetris-block-unix-12"	class="tetris-block tetris-block-rating-technologies-y-7 tetris-block-rating-x-12" 	src="img/tetris/block-teal.png">
+							<img id="tetris-block-unix-13"	class="tetris-block tetris-block-rating-technologies-y-7 tetris-block-rating-x-13"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-unix-14"	class="tetris-block tetris-block-rating-technologies-y-7 tetris-block-rating-x-14"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-unix-15"	class="tetris-block tetris-block-rating-technologies-y-7 tetris-block-rating-x-15"	src="img/tetris/block-green.png">
+							<img id="tetris-block-unix-16"	class="tetris-block tetris-block-rating-technologies-y-7 tetris-block-rating-x-16"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-unix-17"	class="tetris-block tetris-block-rating-technologies-y-7 tetris-block-rating-x-17"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-unix-18"	class="tetris-block tetris-block-rating-technologies-y-7 tetris-block-rating-x-18"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-unix-19"	class="tetris-block tetris-block-rating-technologies-y-7 tetris-block-rating-x-19"	src="img/tetris/block-blank.png">
+
+							<img id="tetris-block-arduino-0"	class="tetris-block tetris-block-rating-technologies-y-8 tetris-block-rating-x-0"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-arduino-1"	class="tetris-block tetris-block-rating-technologies-y-8 tetris-block-rating-x-1"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-arduino-2"	class="tetris-block tetris-block-rating-technologies-y-8 tetris-block-rating-x-2"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-arduino-3"	class="tetris-block tetris-block-rating-technologies-y-8 tetris-block-rating-x-3"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-arduino-4"	class="tetris-block tetris-block-rating-technologies-y-8 tetris-block-rating-x-4"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-arduino-5"	class="tetris-block tetris-block-rating-technologies-y-8 tetris-block-rating-x-5"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-arduino-6"	class="tetris-block tetris-block-rating-technologies-y-8 tetris-block-rating-x-6"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-arduino-7"	class="tetris-block tetris-block-rating-technologies-y-8 tetris-block-rating-x-7"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-arduino-8"	class="tetris-block tetris-block-rating-technologies-y-8 tetris-block-rating-x-8"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-arduino-9"	class="tetris-block tetris-block-rating-technologies-y-8 tetris-block-rating-x-9"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-arduino-10"	class="tetris-block tetris-block-rating-technologies-y-8 tetris-block-rating-x-10"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-arduino-11"	class="tetris-block tetris-block-rating-technologies-y-8 tetris-block-rating-x-11" 	src="img/tetris/block-teal.png">
+							<img id="tetris-block-arduino-12"	class="tetris-block tetris-block-rating-technologies-y-8 tetris-block-rating-x-12" 	src="img/tetris/block-teal.png">
+							<img id="tetris-block-arduino-13"	class="tetris-block tetris-block-rating-technologies-y-8 tetris-block-rating-x-13"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-arduino-14"	class="tetris-block tetris-block-rating-technologies-y-8 tetris-block-rating-x-14"	src="img/tetris/block-teal.png">
+							<img id="tetris-block-arduino-15"	class="tetris-block tetris-block-rating-technologies-y-8 tetris-block-rating-x-15"	src="img/tetris/block-green.png">
+							<img id="tetris-block-arduino-16"	class="tetris-block tetris-block-rating-technologies-y-8 tetris-block-rating-x-16"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-arduino-17"	class="tetris-block tetris-block-rating-technologies-y-8 tetris-block-rating-x-17"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-arduino-18"	class="tetris-block tetris-block-rating-technologies-y-8 tetris-block-rating-x-18"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-arduino-19"	class="tetris-block tetris-block-rating-technologies-y-8 tetris-block-rating-x-19"	src="img/tetris/block-blank.png">
+
+							<img id="tetris-block-eagle-0"	class="tetris-block tetris-block-rating-technologies-y-9 tetris-block-rating-x-0"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-eagle-1"	class="tetris-block tetris-block-rating-technologies-y-9 tetris-block-rating-x-1"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-eagle-2"	class="tetris-block tetris-block-rating-technologies-y-9 tetris-block-rating-x-2"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-eagle-3"	class="tetris-block tetris-block-rating-technologies-y-9 tetris-block-rating-x-3"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-eagle-4"	class="tetris-block tetris-block-rating-technologies-y-9 tetris-block-rating-x-4"	src="img/tetris/block-pink.png">
+							<img id="tetris-block-eagle-5"	class="tetris-block tetris-block-rating-technologies-y-9 tetris-block-rating-x-5"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-eagle-6"	class="tetris-block tetris-block-rating-technologies-y-9 tetris-block-rating-x-6"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-eagle-7"	class="tetris-block tetris-block-rating-technologies-y-9 tetris-block-rating-x-7"	src="img/tetris/block-blue.png">
+							<img id="tetris-block-eagle-8"	class="tetris-block tetris-block-rating-technologies-y-9 tetris-block-rating-x-8"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-eagle-9"	class="tetris-block tetris-block-rating-technologies-y-9 tetris-block-rating-x-9"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-eagle-10"	class="tetris-block tetris-block-rating-technologies-y-9 tetris-block-rating-x-10"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-eagle-11"	class="tetris-block tetris-block-rating-technologies-y-9 tetris-block-rating-x-11" 	src="img/tetris/block-blank.png">
+							<img id="tetris-block-eagle-12"	class="tetris-block tetris-block-rating-technologies-y-9 tetris-block-rating-x-12" 	src="img/tetris/block-blank.png">
+							<img id="tetris-block-eagle-13"	class="tetris-block tetris-block-rating-technologies-y-9 tetris-block-rating-x-13"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-eagle-14"	class="tetris-block tetris-block-rating-technologies-y-9 tetris-block-rating-x-14"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-eagle-15"	class="tetris-block tetris-block-rating-technologies-y-9 tetris-block-rating-x-15"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-eagle-16"	class="tetris-block tetris-block-rating-technologies-y-9 tetris-block-rating-x-16"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-eagle-17"	class="tetris-block tetris-block-rating-technologies-y-9 tetris-block-rating-x-17"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-eagle-18"	class="tetris-block tetris-block-rating-technologies-y-9 tetris-block-rating-x-18"	src="img/tetris/block-blank.png">
+							<img id="tetris-block-eagle-19"	class="tetris-block tetris-block-rating-technologies-y-9 tetris-block-rating-x-19"	src="img/tetris/block-blank.png">
+
+							<!--- Clickable elements on the controller D-pad will move to the previous or next page.  Allow movement to both the left and right. --->
+							<img id="controller" class="controller"	src="img/controller.gif">
+							<div id="controller-left" class="controller-left"></div>
+							<div id="controller-right" class="controller-right"></div>
+
+						<!--- End Tetris page. --->
+
+					</div>
+
+					<div id="zelda-container" class="container zelda-container">
+
+						<!--- Begin Zelda page. --->
+
+							<div id="zelda-waypoint" class="zelda-waypoint"></div>
+
+							<div id="zelda-text-timeline" class="zelda-text-title"></div>
+
+							<img id="zelda-item-count-ladder"		class="zelda-image zelda-image-item-count-0" src="img/zelda/ladder.png" height="40" width="40">
+							<img id="zelda-item-count-book"			class="zelda-image zelda-image-item-count-1" src="img/zelda/book.png">
+							<div id="zelda-text-item-count-ladder"	class="zelda-text-item-count zelda-text-item-count-0">x4</div>
+							<div id="zelda-text-item-count-book"	class="zelda-text-item-count zelda-text-item-count-1">x4</div>
+
+							<img id="zelda-mouse"			class="zelda-image zelda-image-item-weapon-0" src="img/zelda/mouse.png">
+							<img id="zelda-solderingiron"	class="zelda-image zelda-image-item-weapon-1" src="img/zelda/solderingiron.png">
+
+							<img id="zelda-whiteheart-0"	class="zelda-image zelda-image-life-row-x-0 zelda-image-life-row-0-y"							src="img/zelda/whiteheart.png">
+							<img id="zelda-redhearthalf-0"	class="zelda-image zelda-image-life-row-x-0 zelda-image-life-row-0-y zelda-image-life-hidden"	src="img/zelda/redhearthalf.png">
+							<img id="zelda-redheartfull-0"	class="zelda-image zelda-image-life-row-x-0 zelda-image-life-row-0-y zelda-image-life-hidden"	src="img/zelda/redheartfull.png">
+							<img id="zelda-whiteheart-1"	class="zelda-image zelda-image-life-row-x-1 zelda-image-life-row-0-y"							src="img/zelda/whiteheart.png">
+							<img id="zelda-redhearthalf-1"	class="zelda-image zelda-image-life-row-x-1 zelda-image-life-row-0-y zelda-image-life-hidden"	src="img/zelda/redhearthalf.png">
+							<img id="zelda-redheartfull-1"	class="zelda-image zelda-image-life-row-x-1 zelda-image-life-row-0-y zelda-image-life-hidden"	src="img/zelda/redheartfull.png">
+							<img id="zelda-whiteheart-2"	class="zelda-image zelda-image-life-row-x-2 zelda-image-life-row-0-y"							src="img/zelda/whiteheart.png">
+							<img id="zelda-redhearthalf-2"	class="zelda-image zelda-image-life-row-x-2 zelda-image-life-row-0-y zelda-image-life-hidden"	src="img/zelda/redhearthalf.png">
+							<img id="zelda-redheartfull-2"	class="zelda-image zelda-image-life-row-x-2 zelda-image-life-row-0-y zelda-image-life-hidden"	src="img/zelda/redheartfull.png">
+							<img id="zelda-whiteheart-3"	class="zelda-image zelda-image-life-row-x-3 zelda-image-life-row-0-y"							src="img/zelda/whiteheart.png">
+							<img id="zelda-redhearthalf-3"	class="zelda-image zelda-image-life-row-x-3 zelda-image-life-row-0-y zelda-image-life-hidden"	src="img/zelda/redhearthalf.png">
+							<img id="zelda-whiteheart-4"	class="zelda-image zelda-image-life-row-x-4 zelda-image-life-row-0-y"							src="img/zelda/whiteheart.png">
+							<img id="zelda-whiteheart-5"	class="zelda-image zelda-image-life-row-x-0 zelda-image-life-row-1-y"							src="img/zelda/whiteheart.png">
+							<img id="zelda-whiteheart-6"	class="zelda-image zelda-image-life-row-x-1 zelda-image-life-row-1-y"							src="img/zelda/whiteheart.png">
+							<img id="zelda-whiteheart-7"	class="zelda-image zelda-image-life-row-x-2 zelda-image-life-row-1-y"							src="img/zelda/whiteheart.png">
+							<img id="zelda-whiteheart-8"	class="zelda-image zelda-image-life-row-x-3 zelda-image-life-row-1-y"							src="img/zelda/whiteheart.png">
+							<img id="zelda-whiteheart-9"	class="zelda-image zelda-image-life-row-x-4 zelda-image-life-row-1-y"							src="img/zelda/whiteheart.png">
+							
+							<div id="zelda-text-speech-0" class="zelda-text-normal zelda-text-speech-0"></div>
+							<div id="zelda-text-speech-1" class="zelda-text-normal zelda-text-speech-1"></div>
+							
+							<img id="zelda-fire-0"	class="zelda-image zelda-image-fire-0"	src="img/zelda/fire.gif"	height="90" width="90">
+							<img id="zelda-caveman"	class="zelda-image zelda-image-caveman"	src="img/zelda/caveman.png"	height="90" width="90">
+							<img id="zelda-fire-1"	class="zelda-image zelda-image-fire-1"	src="img/zelda/fire.gif"	height="90" width="90">
+
+							<div id="zelda-text-year-1996" class="zelda-text-year zelda-text-year-y-0"></div>
+							<div id="zelda-text-year-2005" class="zelda-text-year zelda-text-year-y-1"></div>
+							<div id="zelda-text-year-2008" class="zelda-text-year zelda-text-year-y-2"></div>
+							<div id="zelda-text-year-2010" class="zelda-text-year zelda-text-year-y-3"></div>
+							<div id="zelda-text-year-2011" class="zelda-text-year zelda-text-year-y-4"></div>
+							<div id="zelda-text-year-2017" class="zelda-text-year zelda-text-year-y-5"></div>
+							<div id="zelda-text-year-2018" class="zelda-text-year zelda-text-year-y-6"></div>
+
+							<img id="zelda-heart"		class="zelda-image zelda-image-timeline-item-0" src="img/zelda/heart.png" height="50" width="50">
+							<img id="zelda-book-0"		class="zelda-image zelda-image-timeline-item-1" src="img/zelda/book.png">
+							<img id="zelda-ladder-0"	class="zelda-image zelda-image-timeline-item-2" src="img/zelda/ladder.png" height="50" width="50">
+							<img id="zelda-book-1"		class="zelda-image zelda-image-timeline-item-3" src="img/zelda/book.png">
+							<img id="zelda-ladder-1"	class="zelda-image zelda-image-timeline-item-4" src="img/zelda/ladder.png" height="50" width="50">
+							<img id="zelda-book-2"		class="zelda-image zelda-image-timeline-item-5" src="img/zelda/book.png">
+							<img id="zelda-ladder-2"	class="zelda-image zelda-image-timeline-item-6" src="img/zelda/ladder.png" height="50" width="50">
+							<img id="zelda-book-3"		class="zelda-image zelda-image-timeline-item-7" src="img/zelda/book.png">
+							<img id="zelda-key-0"		class="zelda-image zelda-image-timeline-item-8" src="img/zelda/key.png">
+							<img id="zelda-ladder-3"	class="zelda-image zelda-image-timeline-item-9" src="img/zelda/ladder.png" height="50" width="50">
+
+							<div id="zelda-text-description-1996-0" class="zelda-text-normal zelda-text-description-x zelda-text-description-0-0"></div>
+							<div id="zelda-text-description-1996-1" class="zelda-text-normal zelda-text-description-x zelda-text-description-0-1"></div>
+
+							<div id="zelda-text-description-2005-0" class="zelda-text-normal zelda-text-description-x zelda-text-description-1-0"></div>
+							<div id="zelda-text-description-2005-1" class="zelda-text-normal zelda-text-description-x zelda-text-description-1-1"></div>
+							<div id="zelda-text-description-2005-2" class="zelda-text-normal zelda-text-description-x zelda-text-description-1-2"></div>
+							<div id="zelda-text-description-2005-3" class="zelda-text-normal zelda-text-description-x zelda-text-description-1-3"></div>
+
+							<div id="zelda-text-description-2008-0" class="zelda-text-normal zelda-text-description-x zelda-text-description-2-0"></div>
+
+							<div id="zelda-text-description-2010-0" class="zelda-text-normal zelda-text-description-x zelda-text-description-3-0"></div>
+							<div id="zelda-text-description-2010-1" class="zelda-text-normal zelda-text-description-x zelda-text-description-3-1"></div>
+							<div id="zelda-text-description-2010-2" class="zelda-text-normal zelda-text-description-x zelda-text-description-3-2"></div>
+
+							<div id="zelda-text-description-2011-0" class="zelda-text-normal zelda-text-description-x zelda-text-description-4-0"></div>
+							<div id="zelda-text-description-2011-1" class="zelda-text-normal zelda-text-description-x zelda-text-description-4-1"></div>
+
+							<div id="zelda-text-description-2017-0" class="zelda-text-normal zelda-text-description-x zelda-text-description-5-0"></div>
+							<div id="zelda-text-description-2017-1" class="zelda-text-normal zelda-text-description-x zelda-text-description-5-1"></div>
+							<div id="zelda-text-description-2017-2" class="zelda-text-normal zelda-text-description-x zelda-text-description-5-2"></div>
+
+							<div id="zelda-text-description-2018-0" class="zelda-text-normal zelda-text-description-x zelda-text-description-6-0"></div>
+							<div id="zelda-text-description-2018-1" class="zelda-text-normal zelda-text-description-x zelda-text-description-6-1"></div>
+
+							<!--- Clickable elements on the controller D-pad will move to the previous or next page.  Allow movement to both the left and right on this page. --->
+							<img id="controller" class="controller"	src="img/controller.gif">
+							<div id="controller-left" class="controller-left"></div>
+							<div id="controller-right" class="controller-right"></div>
+
+						<!--- End Zelda page. --->
+
+					</div>
+
+					<div id="megaman-container" class="container megaman-container">
+
+						<!--- Begin Megaman page. --->
+
+							<div id="megaman-waypoint" class="megaman-waypoint"></div>
+
+							<div id="megaman-text-interests" class="megaman-text-title"></div>
+
+							<!--- First row images and two horizontal lines of text. --->
+							<img id="megaman-videogames"	class="megaman-image-icon megaman-image-x-0 megaman-row-0-image-y"	src="img/megaman/controller.png">
+							<img id="megaman-boardgames"	class="megaman-image-icon megaman-image-x-1 megaman-row-0-image-y"	src="img/megaman/board-games.png">
+							<img id="megaman-mtg"			class="megaman-image-icon megaman-image-x-2 megaman-row-0-image-y"	src="img/megaman/mtg.png">
+
+							<div id="megaman-text-videogames-0"	class="megaman-text-normal megaman-row-0-text-x-0-0 megaman-row-0-text-y-0"></div>
+							<div id="megaman-text-videogames-1"	class="megaman-text-normal megaman-row-0-text-x-0-1 megaman-row-0-text-y-1"></div>
+							<div id="megaman-text-boardgames-0"	class="megaman-text-normal megaman-row-0-text-x-1-0 megaman-row-0-text-y-0"></div>
+							<div id="megaman-text-boardgames-1"	class="megaman-text-normal megaman-row-0-text-x-1-1 megaman-row-0-text-y-1"></div>
+							<div id="megaman-text-mtg-0"		class="megaman-text-normal megaman-row-0-text-x-2-0 megaman-row-0-text-y-0"></div>
+							<div id="megaman-text-mtg-1"		class="megaman-text-normal megaman-row-0-text-x-2-1 megaman-row-0-text-y-1"></div>
+
+							<!--- Second row images and two horizontal lines of text. --->
+							<img id="megaman-escaperooms"	class="megaman-image-icon megaman-image-x-0 megaman-row-1-image-y"	src="img/megaman/escape-rooms.png">
+							<img id="megaman-photography"	class="megaman-image-icon megaman-image-x-1 megaman-row-1-image-y"	src="img/megaman/photography.png">
+							<img id="megaman-movies"		class="megaman-image-icon megaman-image-x-2 megaman-row-1-image-y"	src="img/megaman/movies.png">
+
+							<div id="megaman-text-escaperooms-0"	class="megaman-text-normal megaman-row-1-text-x-0-0 megaman-row-1-text-y-0"></div>
+							<div id="megaman-text-escaperooms-1"	class="megaman-text-normal megaman-row-1-text-x-0-1 megaman-row-1-text-y-1"></div>
+							<div id="megaman-text-photography-0"	class="megaman-text-normal megaman-row-1-text-x-1-0 megaman-row-1-text-y-0"></div>
+							<div id="megaman-text-photography-1"	class="megaman-text-normal megaman-row-1-text-x-1-1 megaman-row-1-text-y-1"></div>
+							<div id="megaman-text-movies"			class="megaman-text-normal megaman-row-1-text-x-2-0 megaman-row-1-text-y-0"></div>
+
+							<img id="megaman-crafting"		class="megaman-image-icon megaman-image-x-0 megaman-row-2-image-y"	src="img/megaman/crafting.png">
+							<img id="megaman-3dprinting"	class="megaman-image-icon megaman-image-x-1 megaman-row-2-image-y"	src="img/megaman/3d-printing.png">
+							<img id="megaman-cats"			class="megaman-image-icon megaman-image-x-2 megaman-row-2-image-y"	src="img/megaman/cats-wagging.gif">
+
+							<div id="megaman-text-crafting-0"	class="megaman-text-normal megaman-row-2-text-x-0-0 megaman-row-2-text-y-0"></div>
+							<div id="megaman-text-crafting-1"	class="megaman-text-normal megaman-row-2-text-x-0-1 megaman-row-2-text-y-1"></div>
+							<div id="megaman-text-3dprinting-0"	class="megaman-text-normal megaman-row-2-text-x-1-0 megaman-row-2-text-y-0"></div>
+							<div id="megaman-text-3dprinting-1"	class="megaman-text-normal megaman-row-2-text-x-1-1 megaman-row-2-text-y-1"></div>
+							<div id="megaman-text-cats-0" 		class="megaman-text-normal megaman-row-2-text-x-2-0 megaman-row-2-text-y-0"></div>
+							<div id="megaman-text-cats-1"		class="megaman-text-normal megaman-row-2-text-x-2-1 megaman-row-2-text-y-1"></div>
+
+							<div id="megaman-text-thanks" class="megaman-text-normal megaman-row-4-text"></div>
+
+							<a href="https://www.linkedin.com/in/justin-gogas/" target="_blank">
+								<img id="megaman-linkedin" class="megaman-image-icon megaman-image-x-0 megaman-row-3-image-y" src="img/megaman/linkedin.png" >
+							</a>
+							<a href="mailto:justingogas@gmail.com">
+								<img id="megaman-gmail" class="megaman-image-icon megaman-image-x-1 megaman-row-3-image-y" src="img/megaman/gmail.png">
+							</a>
+							<a href="tel:+3212897310" target="_blank">
+								<img id="megaman-phone" class="megaman-image-icon megaman-image-x-2 megaman-row-3-image-y" src="img/megaman/phone.png">
+							</a>
+
+							<!--- Clickable elements on the controller D-pad will move to the previous or next page.  Only allow movement to the left on the last page. --->
+							<img id="controller" class="controller"	src="img/controller-left.gif">
+							<div id="controller-left" class="controller-left"></div>
+
+						<!--- End Megaman page. --->
+
+					</div>
+				</div>
+			</div>
+			<div class="hidden-lg col-xl-2 side-columns"></div>
+		</div>
+
+	</div>
+
+	<script src="lib/jquery-3.4.1/jquery.min.js"></script>
+	<script src="lib/popperjs/popper.min.js"></script>
+	<script src="lib/bootstrap-4.0.0/js/bootstrap.min.js"></script>
+	<script src="lib/typewriterjs/dist/core.js"></script>				<!--- https://github.com/tameemsafi/typewriterjs --->
+
+	<script src="js/resume.js"></script>
+
+</body>
+</html>

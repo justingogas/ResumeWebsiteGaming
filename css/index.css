@@ -1,0 +1,743 @@
+/*****************************************/
+/* Begin whole-page styles. **************/
+
+	a {
+		color: #ffffff;
+		text-decoration: underline;
+	}
+
+	a:hover {
+		color: #cccccc;
+		text-decoration: underline;
+	}
+
+	body {
+		background-color: #000000;
+	}
+
+	.main-container {
+		display: none;
+	}
+
+	.pages-container {
+		height: 1496px;
+		margin: 0;
+		min-width: 1156px;
+		padding: 0;
+		position: relative;
+	}
+
+	.mario-container {
+		background-image: url("../img/mario/mario-background.png");
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		height: 1496px;
+		left:0;
+		margin: 0;
+		min-width: 1156px;
+		opacity: 1;
+		padding: 0;
+		position: absolute;
+		top: 0;
+	}
+
+	.tetris-container {
+		background-image: url("../img/tetris/tetris-background.png");
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		display: none;
+		height: 1496px;
+		left:0;
+		margin: 0;
+		min-width: 1156px;
+		opacity: 0;
+		padding: 0;
+		position: absolute;
+		top: 0;
+	}
+
+	.zelda-container {
+		background-image: url("../img/zelda/zelda-background.png");
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		display: none;
+		height: 1496px;
+		left:0;
+		margin: 0;
+		min-width: 1156px;
+		opacity: 0;
+		padding: 0;
+		position: absolute;
+		top: 0;
+	}
+
+	.megaman-container {
+		background-image: url("../img/megaman/megaman-background.png");
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		display: none;
+		height: 1496px;
+		left:0;
+		margin: 0;
+		min-width: 1156px;
+		opacity: 0;
+		padding: 0;
+		position: absolute;
+		top: 0;
+	}
+
+	.side-columns {
+		background-image: url("../img/stars-left.png");
+	}
+
+	.top-navigation {
+		color: #ffffff;
+		font-family: "emulogic";
+		font-style: normal;
+		font-weight: normal;
+	}
+
+	.controller {
+		left: 900px;
+		position: absolute;
+		top: 1375px;
+	}
+
+	.controller-left {
+		cursor: pointer;
+		height: 40px;
+		left: 919px;
+		position: absolute;
+		top: 1415px;
+		width: 25px;
+	}
+
+	.controller-right {
+		cursor: pointer;
+		height: 40px;
+		left: 960px;
+		position: absolute;
+		top: 1415px;
+		width: 25px;
+	}
+
+	.link {
+		cursor: pointer;
+		text-decoration: underline;
+	}
+
+/* End whole-page styles. ****************/
+/*****************************************/
+
+
+/*****************************************/
+/* Begin loading styles. *****************/
+
+	.loading-coin {
+		height: 50px;
+		opacity: 0;
+		width: 55px;
+	}
+
+	.loading-container {
+		height: 900px;
+	}
+
+	.loading-title {
+		color: #ffffff;
+		font-family: emulogic;
+		font-size: 50px;
+	}
+
+	.loading-coins {
+		color: #ffffff;
+		font-size: 50px;
+	}
+
+	.loading-subtitle {
+		color: #ffffff;
+		font-family: emulogic;
+		font-size: 36px;
+	}
+
+/* End loading styles. *******************/
+/*****************************************/
+
+
+/*****************************************/
+/* Begin Mario styles. *******************/
+
+	/* Mario text styles.  The sentences that display around the block image. */
+	.mario-text {
+		color: #ffffff;
+		font-family: emulogic;
+		font-size: 45px;
+		position: absolute;
+	}
+
+	.mario-text-0 { left: 200px;  top: 25px; }
+	.mario-text-1 { left: 150px;  top: 600px; }
+	.mario-text-2 { left: 10px;   top: 700px; }
+	.mario-text-3 { left: 160px;  top: 800px; }
+	.mario-text-4 { left: 130px;  top: 900px; }
+	.mario-text-5 { left: 380px;  top: 1125px; }
+
+	/* Mario image styles. */
+	.mario-image-name {
+		left: 35px;
+		opacity: 0;
+		position: absolute;
+		top: 125px;
+	}
+
+	.mario-image-cursor {
+		left: 280px;
+		opacity: 0;
+		position: absolute;
+		top: 1125px;
+	}
+
+	/* Repeated fading animation for the mushroom cursor. */
+	.blink {
+		animation: blinker 1s infinite;
+	}
+
+	@keyframes blinker {
+		50% {
+			opacity: 1;
+		}
+	}
+
+
+/* End whole-page styles. ****************/
+/*****************************************/
+		
+/*********************************/
+/* Begin Tetris styles. **********/
+
+	/* Text styles. */
+
+	/* Header is the "domain" and "technologies" headers of the two Tetris boxes. */
+	.tetris-text-header {
+		color: #ffffff;
+		font-family: emulogic;
+		font-size: 28px;
+		position: absolute;
+	}
+
+	.tetris-text-header-0 { left: 475px; top: 179px; }
+	.tetris-text-header-1 { left: 420px; top: 824px; }
+
+	/* Row text are the lines that the pieces fall down to and then a rating appears.  The domains consist of two rows of text, while technologies are only one line of text. */
+	.tetris-text-row {
+		color: #ffffff;
+		font-family: emulogic;
+		font-size: 24px;
+		left: 130px;
+		position: absolute;
+	}
+
+	.tetris-text-row-domain-0-0 { top: 259px; }
+	.tetris-text-row-domain-0-1 { top: 289px; }
+	.tetris-text-row-domain-1-0 { top: 334px; }
+	.tetris-text-row-domain-1-1 { top: 364px; }
+	.tetris-text-row-domain-2-0 { top: 409px; }
+	.tetris-text-row-domain-2-1 { top: 439px; }
+	.tetris-text-row-domain-3-0 { top: 494px; }
+	.tetris-text-row-domain-3-1 { top: 524px; }
+	.tetris-text-row-domain-4-0 { top: 579px; }
+	.tetris-text-row-domain-4-1 { top: 609px; }
+	.tetris-text-row-domain-5-0 { top: 664px; }
+	.tetris-text-row-domain-5-1 { top: 694px; }
+
+	.tetris-text-row-technologies-0 { top: 904px; }
+	.tetris-text-row-technologies-1 { top: 956px; }
+	.tetris-text-row-technologies-2 { top: 1008px; }
+	.tetris-text-row-technologies-3 { top: 1060px; }
+	.tetris-text-row-technologies-4 { top: 1112px; }
+	.tetris-text-row-technologies-5 { top: 1164px; }
+	.tetris-text-row-technologies-6 { top: 1216px; }
+	.tetris-text-row-technologies-7 { top: 1268px; }
+	.tetris-text-row-technologies-8 { top: 1320px; }
+	.tetris-text-row-technologies-9 { top: 1372px; }	
+
+	/* Subtitle text are the lines next to the "skills" title. */
+	.tetris-text-subtitle {
+		color: #ffffff;
+		font-family: emulogic;
+		font-size: 15px;
+		position: absolute;
+	}
+
+	.tetris-text-subtitle-0 { left: 500px; top: 54px; }
+	.tetris-text-subtitle-1 { left: 460px; top: 74px; }
+	.tetris-text-subtitle-2 { left: 545px; top: 94px; }
+
+	.tetris-text-title {
+		color: #ffffff;
+		font-family: emulogic;
+		font-size: 50px;
+		position: absolute;
+	}
+
+	.tetris-text-title-0 { left: 125px; top: 44px; }
+
+
+	/* Image styles. */
+	.tetris-block {
+		height: 27px;
+		opacity: 0;
+		position: absolute;
+		width: 27px;
+	}
+
+	.tetris-next-block {
+		position: absolute;
+	}
+
+	/* Source next block is in the upper right screen in the box labeled "next". */
+	.tetris-next-block-source {
+		left: 958px;
+		top: 84px;
+	}
+
+	/* Origin is the block that appears at the top in the middle of the frame and falls down to the appropriate description line. */
+	.tetris-next-block-origin-domains {
+		left: 475px;
+		opacity: 0;
+		top: 254px;
+	}
+
+	/* The ratings block that expand into view have the same X position for both domains and technologies, but Y position varies. */
+	.tetris-block-rating-domains-y-0 { top: 284px; }
+	.tetris-block-rating-domains-y-1 { top: 355px; }
+	.tetris-block-rating-domains-y-2 { top: 424px; }
+	.tetris-block-rating-domains-y-3 { top: 509px; }
+	.tetris-block-rating-domains-y-4 { top: 599px; }
+	.tetris-block-rating-domains-y-5 { top: 679px; }
+
+	.tetris-block-rating-technologies-y-0 { top: 909px; }
+	.tetris-block-rating-technologies-y-1 { top: 961px; }
+	.tetris-block-rating-technologies-y-2 { top: 1013px; }
+	.tetris-block-rating-technologies-y-3 { top: 1065px; }
+	.tetris-block-rating-technologies-y-4 { top: 1117px; }
+	.tetris-block-rating-technologies-y-5 { top: 1169px; }
+	.tetris-block-rating-technologies-y-6 { top: 1221px; }
+	.tetris-block-rating-technologies-y-7 { top: 1273px; }
+	.tetris-block-rating-technologies-y-8 { top: 1325px; }
+	.tetris-block-rating-technologies-y-9 { top: 1377px; }
+
+	.tetris-block-rating-x-0 { left: 475px; }
+	.tetris-block-rating-x-1 { left: 502px; }
+	.tetris-block-rating-x-2 { left: 529px; }
+	.tetris-block-rating-x-3 { left: 556px; }
+	.tetris-block-rating-x-4 { left: 583px; }
+	.tetris-block-rating-x-5 { left: 610px; }
+	.tetris-block-rating-x-6 { left: 637px; }
+	.tetris-block-rating-x-7 { left: 664px; }
+	.tetris-block-rating-x-8 { left: 691px; }
+	.tetris-block-rating-x-9 { left: 718px; }
+	.tetris-block-rating-x-10 { left: 745px; }
+	.tetris-block-rating-x-11 { left: 772px; }
+	.tetris-block-rating-x-12 { left: 799px; }
+	.tetris-block-rating-x-13 { left: 826px; }
+	.tetris-block-rating-x-14 { left: 853px; }
+	.tetris-block-rating-x-15 { left: 880px; }
+	.tetris-block-rating-x-16 { left: 907px; }
+	.tetris-block-rating-x-17 { left: 934px; }
+	.tetris-block-rating-x-18 { left: 961px; }
+	.tetris-block-rating-x-19 { left: 988px; }
+
+	.tetris-next-block-origin-technologies {
+		left: 475px;
+		opacity: 0;
+		top: 899px;
+	}
+
+	.tetris-snake {
+		left: 290px;
+		opacity: 0;
+		position: absolute;
+		top: 1004px;
+	}
+
+
+	/* Block animations.  Each successive keyframe increases three steps and 0.5 seconds. */
+
+	/* Domains animations. */
+	.next-block-animation-stack {
+		animation: tetris-stack 1.0s steps(1);
+		animation-fill-mode: forwards;
+	}
+	@keyframes tetris-stack {
+		0% { top: 254px; }
+		100% { top: 284px; }
+	}
+
+	.next-block-animation-embedded {
+		animation: tetris-embedded 1.5s steps(4);
+		animation-fill-mode: forwards;
+	}
+	@keyframes tetris-embedded {
+		0% { top: 254px; }
+		100% { top: 355px; }
+	}
+
+	.next-block-animation-server {
+		animation: tetris-server 2.0s steps(7);
+		animation-fill-mode: forwards;
+	}
+	@keyframes tetris-server {
+		0% { top: 254px; }
+		100% { top: 424px; }
+	}
+
+	.next-block-animation-software {
+		animation: tetris-software 2.5s steps(10);
+		animation-fill-mode: forwards;
+	}
+	@keyframes tetris-software {
+		0% { top: 254px; }
+		100% { top: 509px; }
+	}
+
+	.next-block-animation-design {
+		animation: tetris-design 3.0s steps(13);
+		animation-fill-mode: forwards;
+	}
+	@keyframes tetris-design {
+		0% { top: 254px; }
+		100% { top: 599px; }
+	}
+
+	.next-block-animation-hardware {
+		animation: tetris-hardware 3.5s steps(16);
+		animation-fill-mode: forwards;
+	}
+	@keyframes tetris-hardware {
+		0% { top: 254px; }
+		100% { top: 679px; }
+	}
+
+	/* Technologies animations. */
+	.next-block-c {
+		animation: tetris-c 0.75s steps(1);
+		animation-fill-mode: forwards;
+	}
+	@keyframes tetris-c {
+		0% { top: 899px; }
+		100% { top: 909px; }
+	}
+
+	.next-block-java {
+		animation: tetris-java 1.0s steps(3);
+		animation-fill-mode: forwards;
+	}
+	@keyframes tetris-java {
+		0% { top: 899px; }
+		100% { top: 961px; }
+	}
+
+	.next-block-python {
+		animation: tetris-python 1.25s steps(5);
+		animation-fill-mode: forwards;
+	}
+	@keyframes tetris-python {
+		0% { top: 899px; }
+		100% { top: 1013px; }
+	}
+
+	.next-block-js {
+		animation: tetris-js 1.5s steps(7);
+		animation-fill-mode: forwards;
+	}
+	@keyframes tetris-js {
+		0% { top: 899px; }
+		100% { top: 1065px; }
+	}
+
+	.next-block-html {
+		animation: tetris-html 1.75s steps(9);
+		animation-fill-mode: forwards;
+	}
+	@keyframes tetris-html {
+		0% { top: 899px; }
+		100% { top: 1117px; }
+	}
+
+	.next-block-coldfusion {
+		animation: tetris-coldfusion 2.0s steps(11);
+		animation-fill-mode: forwards;
+	}
+	@keyframes tetris-coldfusion {
+		0% { top: 899px; }
+		100% { top: 1169px; }
+	}
+
+	.next-block-sql {
+		animation: tetris-sql 2.25s steps(13);
+		animation-fill-mode: forwards;
+	}
+	@keyframes tetris-sql {
+		0% { top: 899px; }
+		100% { top: 1221px; }
+	}
+
+	.next-block-unix {
+		animation: tetris-unix 2.5s steps(15);
+		animation-fill-mode: forwards;
+	}
+	@keyframes tetris-unix {
+		0% { top: 899px; }
+		100% { top: 1273px; }
+	}
+
+	.next-block-arduino {
+		animation: tetris-arduino 2.75s steps(17);
+		animation-fill-mode: forwards;
+	}
+	@keyframes tetris-arduino {
+		0% { top: 899px; }
+		100% { top: 1325px; }
+	}
+
+	.next-block-eagle {
+		animation: tetris-eagle 3.0s steps(19);
+		animation-fill-mode: forwards;
+	}
+	@keyframes tetris-eagle {
+		0% { top: 899px; }
+		100% { top: 1375px; }
+	}
+
+/* End Tetris styles. ************/
+/*********************************/
+
+
+/*********************************/
+/* Begin Zelda styles. ***********/
+
+	/* Text styles. */
+	.zelda-text-item-count {
+		color: #ffffff;
+		font-family: emulogic;
+		font-size: 40px;
+		opacity: 0;
+		position: absolute;
+	}
+
+	.zelda-text-item-count-0 {
+		left: 515px;
+		top: 6px;
+	}
+
+	.zelda-text-item-count-1 {
+		left: 515px;
+		top: 65px;
+	}
+
+	.zelda-text-normal {
+		color: #ffffff;
+		font-family: emulogic;
+		font-size: 24px;
+		position: absolute;
+	}
+
+	/* The speech that the cave man gives. */
+	.zelda-text-speech-0 { left: 110px; top: 238px; }
+	.zelda-text-speech-1 { left: 180px; top: 273px; }
+
+	/* The timeline description texts.  The X is common for all so all can be adjusted at once. */
+	.zelda-text-description-x { left: 350px; }
+	.zelda-text-description-0-0 { top: 498px; }
+	.zelda-text-description-0-1 { top: 533px; }
+	.zelda-text-description-1-0 { top: 598px; }
+	.zelda-text-description-1-1 { top: 633px; }
+	.zelda-text-description-1-2 { top: 698px; }
+	.zelda-text-description-1-3 { top: 733px; }
+	.zelda-text-description-2-0 { top: 798px; }
+	.zelda-text-description-3-0 { top: 863px; }
+	.zelda-text-description-3-1 { top: 898px; }
+	.zelda-text-description-3-2 { top: 963px; }
+	.zelda-text-description-4-0 { top: 1028px; }
+	.zelda-text-description-4-1 { top: 1063px; }
+	.zelda-text-description-5-0 { top: 1128px; }
+	.zelda-text-description-5-1 { top: 1163px; }
+	.zelda-text-description-5-2 { top: 1228px; }
+	.zelda-text-description-6-0 { top: 1293px; }
+	.zelda-text-description-6-1 { top: 1328px; }
+
+	.zelda-text-title {
+		color: #ffffff;
+		font-family: emulogic;
+		font-size: 50px;
+		left: 10px;
+		position: absolute;
+		top: 18px;
+	}
+
+	/* The years that are next to timeline descriptions.  The left is defined separately so all left positions can be adjusted at once. */
+	.zelda-text-year {
+		color: #ffffff;
+		font-family: emulogic;
+		font-size: 30px;
+		left: 125px;
+		position: absolute;
+	}
+
+	.zelda-text-year-y-0 { top: 493px; }
+	.zelda-text-year-y-1 { top: 593px; }
+	.zelda-text-year-y-2 { top: 793px; }
+	.zelda-text-year-y-3 { top: 858px; }
+	.zelda-text-year-y-4 { top: 1023px; }
+	.zelda-text-year-y-5 { top: 1123px; }
+	.zelda-text-year-y-6 { top: 296px; }
+
+
+	/* Image styles. */
+	.zelda-image {
+		position: absolute;
+	}
+
+	/* The item counts that are at the top between the "timeline" and the weapons. */
+	.zelda-image-item-count-0 {
+		left: 470px;
+		opacity: 0;
+		top: 18px;
+	}
+
+	.zelda-image-item-count-1 {
+		left: 485px;
+		opacity: 0;
+		top: 73px;
+	}
+
+	/* The weapons inside the B and A boxes. */
+	.zelda-image-item-weapon-0 {
+		left: 650px;
+		opacity: 0;
+		top: 43px;
+	}
+
+	.zelda-image-item-weapon-1 {
+		left: 768px;
+		opacity: 0;
+		top: 43px;
+	}
+
+	/* The hearts on the far right of the top of the Zelda page. */
+	.zelda-image-life-hidden { opacity: 0; }
+
+	.zelda-image-life-row-x-0 { left: 910px; }
+	.zelda-image-life-row-x-1 { left: 949px; }
+	.zelda-image-life-row-x-2 { left: 988px; }
+	.zelda-image-life-row-x-3 { left: 1027px; }
+	.zelda-image-life-row-x-4 { left: 1066px; }
+
+	.zelda-image-life-row-0-y { top: 53px; }
+	.zelda-image-life-row-1-y { top: 91px; }
+
+	/* The cave fire and man images. */
+	.zelda-image-caveman { left: 533px; top: 343px; }
+	.zelda-image-fire-0 { left: 244px; top: 343px; }
+	.zelda-image-fire-1 { left: 822px; top: 343px;; }
+
+	/* The item graphics that appear with the timeline texts. */
+	.zelda-image-timeline-item-0 { left: 275px; opacity: 0; top: 508px; }
+	.zelda-image-timeline-item-1 { left: 290px; opacity: 0; top: 608px; }
+	.zelda-image-timeline-item-2 { left: 275px; opacity: 0; top: 708px; }
+	.zelda-image-timeline-item-3 { left: 290px; opacity: 0; top: 793px; }
+	.zelda-image-timeline-item-4 { left: 275px; opacity: 0; top: 873px; }
+	.zelda-image-timeline-item-5 { left: 290px; opacity: 0; top: 958px; }
+	.zelda-image-timeline-item-6 { left: 275px; opacity: 0; top: 1038px; }
+	.zelda-image-timeline-item-7 { left: 290px; opacity: 0; top: 1138px; }
+	.zelda-image-timeline-item-8 { left: 290px; opacity: 0; top: 1223px; }
+	.zelda-image-timeline-item-9 { left: 275px; opacity: 0; top: 1298px; }
+
+/* End Zelda styles. *************/
+/*********************************/
+
+
+/*********************************/
+/* Begin Megaman styles. *********/
+
+	.megaman-waypoint {
+		position: absolute;
+		top: 12px;
+	}
+
+	/* Text styles. */
+	.megaman-text-normal {
+		color: #ffffff;
+		font-family: emulogic;
+		font-size: 30px;
+		left: 102px;
+		position: absolute;
+		top: 1002px;
+	}
+
+	.megaman-text-title {
+		color: #ffffff;
+		font-family: emulogic;
+		font-size: 45px;
+		left: 370px;
+		position: absolute;
+		top: 12px;
+	}
+
+	/* Image styles. */
+	.megaman-image-icon {
+		height: 160px;
+		opacity: 0;
+		position: absolute;
+		width: 160px;
+	}
+
+	/* All images on the page have the same three X coordinates due to the 3x4 format. */
+	.megaman-image-x-0 { left: 156px; }
+	.megaman-image-x-1 { left: 495px; }
+	.megaman-image-x-2 { left: 832px; }
+
+	/* Pattern: row-<row #>-text-x-<text square, 0 - 2>-<text row, 0 - 1> */
+	.megaman-row-0-text-x-0-0 { left: 162px; }
+	.megaman-row-0-text-x-0-1 { left: 162px; }
+	.megaman-row-0-text-x-1-0 { left: 500px; }
+	.megaman-row-0-text-x-1-1 { left: 500px; }
+	.megaman-row-0-text-x-2-0 { left: 780px; }
+	.megaman-row-0-text-x-2-1 { left: 780px; }
+
+	.megaman-row-0-image-y { top: 148px; }
+	.megaman-row-0-text-y-0 { top: 340px; }
+	.megaman-row-0-text-y-1 { top: 375px; }
+
+	.megaman-row-1-text-x-0-0 { left: 145px; }
+	.megaman-row-1-text-x-0-1 { left: 162px; }
+	.megaman-row-1-text-x-1-0 { left: 485px; }
+	.megaman-row-1-text-x-1-1 { left: 485px; }
+	.megaman-row-1-text-x-2-0 { left: 820px; }
+
+	.megaman-row-1-image-y { top: 472px; }
+	.megaman-row-1-text-y-0 { top: 665px; }
+	.megaman-row-1-text-y-1 { top: 700px; }
+
+	.megaman-row-2-text-x-0-0 { left: 102px; }
+	.megaman-row-2-text-x-0-1 { left: 135px; }
+	.megaman-row-2-text-x-1-0 { left: 542px; }
+	.megaman-row-2-text-x-1-1 { left: 455px; }
+	.megaman-row-2-text-x-2-0 { left: 825px; }
+	.megaman-row-2-text-x-2-1 { left: 810px; }
+
+	.megaman-row-2-image-y { top: 797px; }
+	.megaman-row-2-text-y-0 { top: 990px; }
+	.megaman-row-2-text-y-1 { top: 1025px; }
+
+	.megaman-row-3-image-y { top: 1228px; }
+	
+	.megaman-row-4-text { left: 293px; top: 1104px; }
+
+/* End Megaman styles. ***********/
+/*********************************/
