@@ -17,12 +17,10 @@ $(document).ready(function() {
 
 	// The controller divs control the fading between the four pages.  Since the controller divs might not be in the DOM when the pages appear, add a click handler to the document so that it gets added when it does exist.
 	$(document).on("click", "#controller-left", function() {
-		console.log("left");
 		previousPage();
 	});
 
 	$(document).on("click", "#controller-right", function() {
-		console.log("right");
 		nextPage();
 	});
 });
@@ -56,7 +54,7 @@ function processKeypress(inputEvent) {
 }
 
 
-// Navigate to the next page based on the current page that is visible (Mario > Tetris > Zelda > Megaman).  Determine the current page depending on what is visible.
+// Navigate to the next page based on the current page that is visible (Mario => Tetris => Zelda => Megaman).  Determine the current page depending on what is visible.
 function nextPage() {
 
 	var marioContainer = $("#mario-container");
@@ -74,7 +72,7 @@ function nextPage() {
 			scrollToTop();
 			tetrisContainer.fadeTo(1000, 1, function() {
 
-				$.each(animations, function(index, element) {
+				$.each(animations, function(index, element) {console.log(element);
 					if (element.name == "tetris" && !element.started) {
 
 						startTetrisAnimations();
@@ -96,7 +94,7 @@ function nextPage() {
 			scrollToTop();
 			zeldaContainer.fadeTo(1000, 1, function() {
 
-				$.each(animations, function(index, element) {
+				$.each(animations, function(index, element) {console.log(element);
 					if (element.name == "zelda" && !element.started) {
 
 						startZeldaAnimations();
@@ -118,7 +116,7 @@ function nextPage() {
 			scrollToTop();
 			megamanContainer.fadeTo(1000, 1, function() {
 
-				$.each(animations, function(index, element) {
+				$.each(animations, function(index, element) {console.log(element);
 					if (element.name == "megaman" && !element.started) {
 
 						startMegamanAnimations();
@@ -132,7 +130,7 @@ function nextPage() {
 }
 
 
-// Navigate to the previous page based on the current page (Mario > Tetris > Zelda > Megaman) .  Determine the current page depending on what is visible.
+// Navigate to the previous page based on the current page (Mario => Tetris => Zelda => Megaman).  Determine the current page depending on what is visible.
 function previousPage() {
 	
 	var marioContainer = $("#mario-container");
@@ -186,6 +184,14 @@ function startResume() {
 
 		$("#main").fadeIn(1000, function() {
 			startMarioAnimations();
+
+			// Deactivate the mario animations from future starting.
+			$.each(animations, function(index, element) {
+				if (element.name == "mario" && !element.started) {
+					element.started = true;
+					return false;
+				}
+			});
 		});
 	});
 }
@@ -290,6 +296,30 @@ function startTetrisAnimations() {
 }
 
 
+// To sequence the animations, it needs to be known which animation events to attach to.  However, different browsers have multiple events they can attach to, and including
+// all browser event types can lead to animations repeating when they should not.  Instead, detect the exact animation end event type that the browser is using and use that
+// to attach animation completion events to.
+function getAnimationEventType(inputElement){
+
+	var animationType = "";
+
+	// Enumerate the browser animation events of interest and their corresponding event ending.
+	var animations = {
+		"animation"      : "animationend",
+		"OAnimation"     : "oAnimationEnd",
+		"MozAnimation"   : "animationend",
+		"WebkitAnimation": "webkitAnimationEnd"
+	}
+
+	// Search for the animation type in the event and then return the corresponding ending animation type.
+	for (animationType in animations){
+		if (inputElement.style[animationType] !== undefined){
+			return animations[animationType];
+		}
+	}
+}
+
+
 // Start the block animations for the domain container.  The animations are defined in keyframes in the main css file.
 function startDomainsAnimations() {
 
@@ -322,8 +352,10 @@ function startDomainsAnimations() {
 
 		$("#tetris-next-block-hardware").fadeTo(250, 1).queue(function() {
 
+			var $this = $(this);
+
 			// Add the keyframe class to start the animation.
-			$(this).addClass("next-block-animation-hardware");
+			$this.addClass("next-block-animation-hardware");
 
 			typeWriterTetrisHardware0.typeString("Hardware")
 			.start()
@@ -332,100 +364,128 @@ function startDomainsAnimations() {
 				typeWriterTetrisHardware1.typeString("engineering")
 				.start();
 			});
-		});
 
-		// A callback after the keyframe animation is complete is used to start the animation of the next skill.
-		$("#tetris-next-block-hardware").bind("oanimationend animationend webkitAnimationEnd", function() {
+			// A callback after the keyframe animation is complete is used to start the animation of the next skill.  The .one() will only perform the binding function once and then unbind itself, which is desired since the animations should only run once.
+			$this.one(getAnimationEventType(document.getElementById($this.attr("id"))), function() {
 
-			// Fade in the row of blocks for this skill.
-			fadeInElements($("[id ^= 'tetris-block-hardware-']"), 50, 50);
+				// Fade in the row of blocks for this skill.
+				fadeInElements($("[id ^= 'tetris-block-hardware-']"), 50, 50);
 
-			$("#tetris-next-block-design").fadeTo(250, 1).queue(function() {
+				$("#tetris-next-block-design").fadeTo(250, 1).queue(function() {
 
-				$(this).addClass("next-block-animation-design");
+					// Hide the last block.
+					$("#tetris-next-block-hardware").hide();
 
-				typeWriterTetrisDesign0.typeString("Design: UI/UX")
-				.start()
-				.pauseFor(250)
-				.callFunction(function() {
-					typeWriterTetrisDesign1.typeString("and graphic")
-					.start();
-				});
+					var $this = $(this);
 
-				$(this).bind("oanimationend animationend webkitAnimationEnd", function() {
+					$this.addClass("next-block-animation-design");
 
-					fadeInElements($("[id ^= 'tetris-block-design-']"), 50, 50);
+					typeWriterTetrisDesign0.typeString("Design: UI/UX")
+					.start()
+					.pauseFor(250)
+					.callFunction(function() {
+						typeWriterTetrisDesign1.typeString("and graphic")
+						.start();
+					});
 
-					$("#tetris-next-block-software").fadeTo(250, 1).queue(function() {
+					$this.one(getAnimationEventType(document.getElementById($this.attr("id"))), function() {
 
-						$(this).addClass("next-block-animation-software");
+						fadeInElements($("[id ^= 'tetris-block-design-']"), 50, 50);
 
-						typeWriterTetrisSoftware0.typeString("Software")
-						.start()
-						.pauseFor(250)
-						.callFunction(function() {
-							typeWriterTetrisSoftware1.typeString("engineering")
-							.start();
-						});
+						$("#tetris-next-block-software").fadeTo(250, 1).queue(function() {
 
-						$(this).bind("oanimationend animationend webkitAnimationEnd", function() {
+							// Hide the last block.
+							$("#tetris-next-block-design").hide();
 
-							fadeInElements($("[id ^= 'tetris-block-software-']"), 50, 50);
+							var $this = $(this);
 
-							$("#tetris-next-block-server").fadeTo(250, 1).queue(function() {
+							$this.addClass("next-block-animation-software");
 
-								$(this).addClass("next-block-animation-server");
+							typeWriterTetrisSoftware0.typeString("Software")
+							.start()
+							.pauseFor(250)
+							.callFunction(function() {
+								typeWriterTetrisSoftware1.typeString("engineering")
+								.start();
+							});
 
-								typeWriterTetrisServer0.typeString("Server")
-								.start()
-								.pauseFor(250)
-								.callFunction(function() {
-									typeWriterTetrisServer1.typeString("administ.")
-									.start();
-								});
+							$this.one(getAnimationEventType(document.getElementById($this.attr("id"))), function() {
 
-								$(this).bind("oanimationend animationend webkitAnimationEnd", function() {
+								fadeInElements($("[id ^= 'tetris-block-software-']"), 50, 50);
 
-									fadeInElements($("[id ^= 'tetris-block-server-']"), 50, 50);
+								$("#tetris-next-block-server").fadeTo(250, 1).queue(function() {
 
-									$("#tetris-next-block-embedded").fadeTo(250, 1).queue(function() {
+									// Hide the last block.
+									$("#tetris-next-block-software").hide();
 
-										$(this).addClass("next-block-animation-embedded");
+									var $this = $(this);
 
-										typeWriterTetrisEmbedded0.typeString("Embedded")
-										.start()
-										.pauseFor(250)
-										.callFunction(function() {
-											typeWriterTetrisEmbedded1.typeString("programming")
-											.start();
-										});
+									$this.addClass("next-block-animation-server");
 
-										$(this).bind("oanimationend animationend webkitAnimationEnd", function() {
+									typeWriterTetrisServer0.typeString("Server")
+									.start()
+									.pauseFor(250)
+									.callFunction(function() {
+										typeWriterTetrisServer1.typeString("administ.")
+										.start();
+									});
 
-											fadeInElements($("[id ^= 'tetris-block-embedded-']"), 50, 50);
+									$this.one(getAnimationEventType(document.getElementById($this.attr("id"))), function() {
 
-											$("#tetris-next-block-stack").fadeTo(250, 1).queue(function() {
+										fadeInElements($("[id ^= 'tetris-block-server-']"), 50, 50);
 
-												$(this).addClass("next-block-animation-stack");
+										$("#tetris-next-block-embedded").fadeTo(250, 1).queue(function() {
 
-												typeWriterTetrisStack0.typeString("Full-stack")
-												.start()
-												.pauseFor(250)
-												.callFunction(function() {
-													typeWriterTetrisStack1.typeString("programming")
-													.start();
-												});
+											// Hide the last block.
+											$("#tetris-next-block-server").hide();
 
-												$(this).bind("oanimationend animationend webkitAnimationEnd", function() {
+											var $this = $(this);
 
-													fadeInElements($("[id ^= 'tetris-block-stack-']"), 50, 50);
+											$this.addClass("next-block-animation-embedded");
 
-													// Start the animations for the technologies frame.
-													startTechnologiesAnimations();
+											typeWriterTetrisEmbedded0.typeString("Embedded")
+											.start()
+											.pauseFor(250)
+											.callFunction(function() {
+												typeWriterTetrisEmbedded1.typeString("programming")
+												.start();
+											});
+
+											$this.one(getAnimationEventType(document.getElementById($this.attr("id"))), function() {
+
+												fadeInElements($("[id ^= 'tetris-block-embedded-']"), 50, 50);
+
+												$("#tetris-next-block-stack").fadeTo(250, 1).queue(function() {
+
+													// Hide the last block.
+													$("#tetris-next-block-embedded").hide();
+
+													var $this = $(this);
+
+													$this.addClass("next-block-animation-stack");
+
+													typeWriterTetrisStack0.typeString("Full-stack")
+													.start()
+													.pauseFor(250)
+													.callFunction(function() {
+														typeWriterTetrisStack1.typeString("programming")
+														.start();
+													});
+
+													$this.one(getAnimationEventType(document.getElementById($this.attr("id"))), function() {
+
+														// Hide the last block.
+														$("#tetris-next-block-stack").hide();
+
+														fadeInElements($("[id ^= 'tetris-block-stack-']"), 50, 50);
+
+														// Start the animations for the technologies frame.
+														startTechnologiesAnimations();
+													});
 												});
 											});
-										});
-									});						
+										});						
+									});
 								});
 							});
 						});
@@ -467,80 +527,124 @@ function startTechnologiesAnimations() {
 
 		$("#tetris-next-block-eagle").fadeTo(250, 1).queue(function() {
 
+			var $this = $(this);
+
 			// Add the keyframe class to start the animation.
-			$(this).addClass("next-block-eagle");
+			$this.addClass("next-block-eagle");
 
-			typeWriterTetrisEagle.typeString("Eagle PCB").start();
+			typeWriterTetrisEagle.typeString("Eagle PCB")
+			.start();
 
-			// A callback after the keyframe animation is complete is used to start the animation of the next skill.
-			$(this).bind("oanimationend animationend webkitAnimationEnd", function() {
+			// A callback after the keyframe animation is complete is used to start the animation of the next skill.  The .one() will only perform the binding function once and then unbind itself, which is desired since the animations should only run once.
+			$this.one(getAnimationEventType(document.getElementById($this.attr("id"))), function() {
 
 				// Fade in the row of blocks for this skill.
 				fadeInElements($("[id ^= 'tetris-block-eagle-']"), 50, 50);
 
 				$("#tetris-next-block-arduino").fadeTo(250, 1).queue(function() {
 
-					$(this).addClass("next-block-arduino");
+					// Hide the last block.
+					$("#tetris-next-block-eagle").hide();
 
-					typeWriterTetrisArduino.typeString("Arduino").start();
+					var $this = $(this);
 
-					$(this).bind("oanimationend animationend webkitAnimationEnd", function() {
+					$this.addClass("next-block-arduino");
+
+					typeWriterTetrisArduino.typeString("Arduino")
+					.start();
+
+					$this.one(getAnimationEventType(document.getElementById($this.attr("id"))), function() {
 
 						fadeInElements($("[id ^= 'tetris-block-arduino-']"), 50, 50);
 
 						$("#tetris-next-block-unix").fadeTo(250, 1).queue(function() {
 
-							$(this).addClass("next-block-unix");
+							// Hide the last block.
+							$("#tetris-next-block-arduino").hide();
 
-							typeWriterTetrisUnix.typeString("UNIX/Linux").start();
+							var $this = $(this);
 
-							$(this).bind("oanimationend animationend webkitAnimationEnd", function() {
+							$this.addClass("next-block-unix");
+
+							typeWriterTetrisUnix.typeString("UNIX/Linux")
+							.start();
+
+							$(this).one(getAnimationEventType(document.getElementById($(this).attr("id"))), function() {
 
 								fadeInElements($("[id ^= 'tetris-block-unix-']"), 50, 50);
 
 								$("#tetris-next-block-sql").fadeTo(250, 1).queue(function() {
 
-									$(this).addClass("next-block-sql");
+									// Hide the last block.
+									$("#tetris-next-block-unix").hide();
 
-									typeWriterTetrisSql.typeString("SQL/Oracle").start();
+									var $this = $(this);
 
-									$(this).bind("oanimationend animationend webkitAnimationEnd", function() {
+									$this.addClass("next-block-sql");
+
+									typeWriterTetrisSql.typeString("SQL/Oracle")
+									.start();
+
+									$this.one(getAnimationEventType(document.getElementById($this.attr("id"))), function() {
 
 										fadeInElements($("[id ^= 'tetris-block-sql-']"), 50, 50);
 
 										$("#tetris-next-block-coldfusion").fadeTo(250, 1).queue(function() {
 
-											$(this).addClass("next-block-coldfusion");
+											// Hide the last block.
+											$("#tetris-next-block-sql").hide();
 
-											typeWriterTetrisColdfusion.typeString("ColdFusion/PHP").start();
+											var $this = $(this);
 
-											$(this).bind("oanimationend animationend webkitAnimationEnd", function() {
+											$this.addClass("next-block-coldfusion");
+
+											typeWriterTetrisColdfusion.typeString("ColdFusion/PHP")
+											.start();
+
+											$this.one(getAnimationEventType(document.getElementById($this.attr("id"))), function() {
 
 												fadeInElements($("[id ^= 'tetris-block-coldfusion-']"), 50, 50);
 
 												$("#tetris-next-block-html").fadeTo(250, 1).queue(function() {
 
-													$(this).addClass("next-block-html");
+													// Hide the last block.
+													$("#tetris-next-block-coldfusion").hide();
 
-													typeWriterTetrisHtml.typeString("HTML/CSS").start();
+													var $this = $(this);
 
-													$(this).bind("oanimationend animationend webkitAnimationEnd", function() {
+													$this.addClass("next-block-html");
+
+													typeWriterTetrisHtml.typeString("HTML/CSS")
+													.start();
+
+													$this.one(getAnimationEventType(document.getElementById($this.attr("id"))), function() {
 
 														fadeInElements($("[id ^= 'tetris-block-html-']"), 50, 50);
 
 														$("#tetris-next-block-js").fadeTo(250, 1).queue(function() {
 
-															$(this).addClass("next-block-js");
+															// Hide the last block.
+															$("#tetris-next-block-html").hide();
 
-															typeWriterTetrisJs.typeString("JS/jQuery").start();
+															var $this = $(this);
 
-															$(this).bind("oanimationend animationend webkitAnimationEnd", function() {
+															$this.addClass("next-block-js");
+
+															typeWriterTetrisJs.typeString("JS/jQuery")
+															.start();
+
+															$this.one(getAnimationEventType(document.getElementById($this.attr("id"))), function() {
 
 																fadeInElements($("[id ^= 'tetris-block-js-']"), 50, 50);
 
 																$("#tetris-next-block-python").fadeTo(250, 1).queue(function() {
 
-																	$(this).addClass("next-block-python");
+																	// Hide the last block.
+																	$("#tetris-next-block-js").hide();
+
+																	var $this = $(this);
+
+																	$this.addClass("next-block-python");
 
 																	typeWriterTetrisPython.typeString("Python")
 																	.start()
@@ -550,28 +654,47 @@ function startTechnologiesAnimations() {
 																		$("#tetris-snake").fadeTo(250, 1);
 																	});
 
-																	$(this).bind("oanimationend animationend webkitAnimationEnd", function() {
+																	$this.one(getAnimationEventType(document.getElementById($this.attr("id"))), function() {
 
 																		fadeInElements($("[id ^= 'tetris-block-python-']"), 50, 50);
 
 																		$("#tetris-next-block-java").fadeTo(250, 1).queue(function() {
 
-																			$(this).addClass("next-block-java");
+																			// Hide the last block.
+																			$("#tetris-next-block-python").hide();
 
-																			typeWriterTetrisJava.typeString("Java/Groovy").start();
+																			var $this = $(this);
 
-																			$(this).bind("oanimationend animationend webkitAnimationEnd", function() {
+																			$this.addClass("next-block-java");
+
+																			typeWriterTetrisJava.typeString("Java/Groovy")
+																			.start();
+
+																			$this.one(getAnimationEventType(document.getElementById($this.attr("id"))), function() {
 
 																				fadeInElements($("[id ^= 'tetris-block-java-']"), 50, 50);
 
 																				$("#tetris-next-block-c").fadeTo(250, 1).queue(function() {
 
-																					$(this).addClass("next-block-c");
+																					// Hide the last block.
+																					$("#tetris-next-block-java").hide();
 
-																					typeWriterTetrisC.typeString("C/C#").start();
+																					var $this = $(this);
 
-																					$(this).bind("oanimationend animationend webkitAnimationEnd", function() {
+																					$this.addClass("next-block-c");
+
+																					typeWriterTetrisC.typeString("C/C#")
+																					.start();
+																					/*.pauseFor(1000)
+																					.callFunction(function() {
+
+																						
+																					});*/
+
+																					$this.one(getAnimationEventType(document.getElementById($this.attr("id"))), function() {
 																						fadeInElements($("[id ^= 'tetris-block-c-']"), 50, 50);
+																						// Hide the last block.
+																						$("#tetris-next-block-c").hide();
 																					});
 																				});
 																			});
