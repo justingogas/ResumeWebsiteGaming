@@ -72,7 +72,7 @@ function nextPage() {
 			scrollToTop();
 			tetrisContainer.fadeTo(1000, 1, function() {
 
-				$.each(animations, function(index, element) {console.log(element);
+				$.each(animations, function(index, element) {
 					if (element.name == "tetris" && !element.started) {
 
 						startTetrisAnimations();
@@ -94,7 +94,7 @@ function nextPage() {
 			scrollToTop();
 			zeldaContainer.fadeTo(1000, 1, function() {
 
-				$.each(animations, function(index, element) {console.log(element);
+				$.each(animations, function(index, element) {
 					if (element.name == "zelda" && !element.started) {
 
 						startZeldaAnimations();
@@ -116,7 +116,7 @@ function nextPage() {
 			scrollToTop();
 			megamanContainer.fadeTo(1000, 1, function() {
 
-				$.each(animations, function(index, element) {console.log(element);
+				$.each(animations, function(index, element) {
 					if (element.name == "megaman" && !element.started) {
 
 						startMegamanAnimations();
