@@ -667,7 +667,7 @@ function startTechnologiesAnimations() {
 
 																			$this.addClass("next-block-java");
 
-																			typeWriterTetrisJava.typeString("Java/Groovy")
+																			typeWriterTetrisJava.typeString("Java/C#")
 																			.start();
 
 																			$this.one(getAnimationEventType(document.getElementById($this.attr("id"))), function() {
@@ -683,13 +683,8 @@ function startTechnologiesAnimations() {
 
 																					$this.addClass("next-block-c");
 
-																					typeWriterTetrisC.typeString("C/C#")
+																					typeWriterTetrisC.typeString("C/Embedded")
 																					.start();
-																					/*.pauseFor(1000)
-																					.callFunction(function() {
-
-																						
-																					});*/
 
 																					$this.one(getAnimationEventType(document.getElementById($this.attr("id"))), function() {
 																						fadeInElements($("[id ^= 'tetris-block-c-']"), 50, 50);
@@ -783,11 +778,14 @@ function startZeldaAnimations() {
 	var typeWriterZelda2017 =				new Typewriter("#zelda-text-year-2017", typeWriterOptions);
 	var typeWriterZelda2017Description0 =	new Typewriter("#zelda-text-description-2017-0", typeWriterOptions);
 	var typeWriterZelda2017Description1 =	new Typewriter("#zelda-text-description-2017-1", typeWriterOptions);
-	var typeWriterZelda2017Description2 =	new Typewriter("#zelda-text-description-2017-2", typeWriterOptions);
 
 	var typeWriterZelda2018 =				new Typewriter("#zelda-text-year-2018", typeWriterOptions);
 	var typeWriterZelda2018Description0 =	new Typewriter("#zelda-text-description-2018-0", typeWriterOptions);
 	var typeWriterZelda2018Description1 =	new Typewriter("#zelda-text-description-2018-1", typeWriterOptions);
+	
+	var typeWriterZelda2019 =				new Typewriter("#zelda-text-year-2019", typeWriterOptions);
+	var typeWriterZelda2019Description0 =	new Typewriter("#zelda-text-description-2019-0", typeWriterOptions);
+	var typeWriterZelda2019Description1 =	new Typewriter("#zelda-text-description-2019-1", typeWriterOptions);
 
 	// The typewriter objects can only be sequenced in callbacks after the typewriter finishes.  This creates an insane callback hell, but it is unavoidable.
 	// The top part of the Zelda page is fading in the title, several of the image icons, and then fading in half and full hearts to fill the heart meters.
@@ -972,29 +970,40 @@ function startZeldaAnimations() {
 																							.start()
 																							.pauseFor(250)
 																							.callFunction(function() {
-																								$("#zelda-key-0").fadeTo(250, 1);
-																							})
-																							.pauseFor(250)
-																							.callFunction(function() {
 
-																								typeWriterZelda2017Description2.typeString("USF: CanvasCon 2017 Presenter")
+																								typeWriterZelda2018.typeString("2018")
 																								.start()
 																								.callFunction(function() {
-																									
-																									typeWriterZelda2018.typeString("2018")
+																									$("#zelda-ladder-3").fadeTo(250, 1);
+																								})
+																								.pauseFor(250)
+																								.callFunction(function() {
+
+																									typeWriterZelda2018Description0.typeString("Forgotten Dimensions Escape")
 																									.start()
 																									.callFunction(function() {
-																										$("#zelda-ladder-3").fadeTo(250, 1);
-																									})
-																									.pauseFor(250)
-																									.callFunction(function() {
 
-																										typeWriterZelda2018Description0.typeString("Forgotten Dimensions Escape")
+																										typeWriterZelda2018Description1.typeString("Adventures: Owner & CTO")
 																										.start()
+																										.pauseFor(250)
 																										.callFunction(function() {
+																								
+																											typeWriterZelda2019.typeString("2019")
+																											.start()
+																											.callFunction(function() {
+																												$("#zelda-ladder-4").fadeTo(250, 1);
+																											})
+																											.pauseFor(250)
+																											.callFunction(function() {
 
-																											typeWriterZelda2018Description1.typeString("Adventures: Owner & CTO")
-																											.start();
+																												typeWriterZelda2019Description0.typeString("Evo Payments, Inc.")
+																												.start()
+																												.callFunction(function() {
+
+																													typeWriterZelda2019Description1.typeString("Software engineer")
+																													.start();
+																												});
+																											});
 																										});
 																									});
 																								});
